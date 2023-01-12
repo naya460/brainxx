@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // prototype declaration
 static void CompileAboutStack();
@@ -13,18 +14,24 @@ void Compile(char *program_text){
 
     while(*program != '\0') {
         switch (*program) {
-            // About Stack Process
+            // about stack process
             case '$':
-                ++program;
                 CompileAboutStack();
                 break;
+            // move next char
+            default:
+                ++program;
+                break;
         }
-
-        // next char
-        ++program;
     }
 }
 
 void CompileAboutStack(){
-    printf("OK\n");
+    // move next char of '$'
+    ++program;
+    // stack number when current char is number
+    if ('0' <= *program && *program <= '9') {
+        long n = strtol(program, &program, 10);
+        printf("%ld\n", n);
+    }
 }
