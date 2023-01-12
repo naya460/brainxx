@@ -3,10 +3,25 @@
 #include "file.h"
 #include "error.h"
 
+static char *prog;
+
+void CompileAboutStack(){
+    printf("OK\n");
+}
+
 void Compile(char *program){
-    while(*program != '\0') {
-        putchar(*program);
-        ++program;
+    prog = program;
+
+    while(*prog != '\0') {
+        switch (*prog) {
+            case '$':
+                ++prog;
+                CompileAboutStack();
+                break;
+        }
+
+        // next char
+        ++prog;
     }
 }
 
