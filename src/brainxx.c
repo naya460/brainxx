@@ -12,7 +12,7 @@ void Compile(char *program){
 
 int main(int argc, char **argv){
     if (argc < 2) Error(1, "arguments are less than 2\n");
-    Compile(OpenFile(argv[1]));
+    Compile(ReadFile(argv[1]));
     putchar('\n');
     return 0;
 }

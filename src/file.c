@@ -6,7 +6,7 @@
 
 #include "error.h"
 
-char *OpenFile(const char *path){
+char *ReadFile(const char *path){
     // open file
     FILE *file;
     file = fopen(path, "r");
