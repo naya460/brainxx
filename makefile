@@ -5,7 +5,7 @@ build :
 
 .PHONY : run
 run :
-	./build/src/bxx ${ARG}
+	./build/src/bxx ${ARG} ${arg}
 
 .PHONY : clean
 clean :

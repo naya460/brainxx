@@ -8,7 +8,7 @@ void Error(int return_num, const char *error_text){
     exit(return_num);
 }
 
-void OpenFile(const char *path){
+char *OpenFile(const char *path){
     // open file
     FILE *file;
     file = fopen(path, "r");
@@ -24,17 +24,23 @@ void OpenFile(const char *path){
     int read_count = fread(str, sizeof(char), size + 1, file);
     if (read_count == 0) Error(2, "failed to read file\n");
     str[read_count + 1] = '\0';
-    printf("%s\n", str);
 
     // close file
     fclose(file);
 
-    // free
-    free(str);
+    return str;
+}
+
+void Compile(char *program){
+    while(*program != '\0') {
+        putchar(*program);
+        ++program;
+    }
 }
 
 int main(int argc, char **argv){
     if (argc < 2) Error(1, "arguments are less than 2\n");
-    OpenFile(argv[1]);
+    Compile(OpenFile(argv[1]));
+    putchar('\n');
     return 0;
 }
