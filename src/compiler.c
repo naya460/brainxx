@@ -6,12 +6,19 @@ static void CompileAboutStack();
 
 // declare variables
 static char *program;
+static long stack_count = 0;
 
 // ========================================
 
 void Compile(char *program_text){
     program = program_text;
 
+    // output base assembly
+    printf(".intel_syntax noprefix\n");
+    printf(".globl main\n");
+    printf("main:\n");
+
+    // process each text in program
     while(*program != '\0') {
         switch (*program) {
             // about stack process
@@ -24,6 +31,13 @@ void Compile(char *program_text){
                 break;
         }
     }
+
+    // output end assembly
+    while (stack_count-- != 0) {
+        printf("    pop rax\n");
+    }
+    printf("    mov rax, 0\n");
+    printf("    ret\n");
 }
 
 void CompileAboutStack(){
@@ -32,6 +46,7 @@ void CompileAboutStack(){
     // stack number when current char is number
     if ('0' <= *program && *program <= '9') {
         long n = strtol(program, &program, 10);
-        printf("%ld\n", n);
+        printf("    push %d\n", n);
+        ++stack_count;
     }
 }
