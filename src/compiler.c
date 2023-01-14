@@ -18,7 +18,7 @@ void Compile(char *program_text){
     printf(".globl main\n");
     printf("main:\n");
 
-    // process each text in program
+    // operation each text in program
     while(*program != '\0') {
         switch (*program) {
             // about stack process
@@ -48,5 +48,24 @@ void CompileAboutStack(){
         long n = strtol(program, &program, 10);
         printf("    push %d\n", n);
         ++stack_count;
+    }
+    // single operation
+    switch (*program) {
+        case '+':
+            printf("    pop rdi\n");
+            printf("    pop rax\n");
+            printf("    add rax, rdi\n");
+            printf("    push rax\n");
+            --stack_count;
+            ++program;
+            break;
+        case '-':
+            printf("    pop rdi\n");
+            printf("    pop rax\n");
+            printf("    sub rax, rdi\n");
+            printf("    push rax\n");
+            --stack_count;
+            ++program;
+            break;
     }
 }
