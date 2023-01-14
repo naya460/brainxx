@@ -6,7 +6,6 @@ static void CompileAboutStack();
 
 // declare variables
 static char *program;
-static long stack_count = 0;
 
 // ========================================
 
@@ -17,6 +16,7 @@ void Compile(char *program_text){
     printf(".intel_syntax noprefix\n");
     printf(".globl main\n");
     printf("main:\n");
+    printf("    mov rbp, rsp\n");
 
     // operation each text in program
     while(*program != '\0') {
@@ -33,9 +33,7 @@ void Compile(char *program_text){
     }
 
     // output end assembly
-    while (stack_count-- != 0) {
-        printf("    pop rax\n");
-    }
+    printf("    mov rsp, rbp\n");
     printf("    mov rax, 0\n");
     printf("    ret\n");
 }
@@ -47,7 +45,6 @@ void CompileAboutStack(){
     if ('0' <= *program && *program <= '9') {
         long n = strtol(program, &program, 10);
         printf("    push %d\n", n);
-        ++stack_count;
     }
     // single operation
     switch (*program) {
@@ -56,7 +53,6 @@ void CompileAboutStack(){
             printf("    pop rax\n");
             printf("    add rax, rdi\n");
             printf("    push rax\n");
-            --stack_count;
             ++program;
             break;
         case '-':
@@ -64,7 +60,6 @@ void CompileAboutStack(){
             printf("    pop rax\n");
             printf("    sub rax, rdi\n");
             printf("    push rax\n");
-            --stack_count;
             ++program;
             break;
     }
