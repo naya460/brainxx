@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "c-stack.h"
+#include "compiler/c-stack.h"
 
 // declare variables
 static char *program;

@@ -1,4 +1,4 @@
-#include "c-stack.h"
+#include "compiler/c-stack.h"
 
 #include <stdio.h>
 #include <stdlib.h>
