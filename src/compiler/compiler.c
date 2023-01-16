@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-// prototype declaration
-static void CompileAboutStack();
+#include "c-stack.h"
 
 // declare variables
 static char *program;
@@ -23,7 +21,7 @@ void Compile(char *program_text){
         switch (*program) {
             // about stack process
             case '$':
-                CompileAboutStack();
+                CompileAboutStack(&program);
                 break;
             // move next char
             default:
@@ -36,31 +34,4 @@ void Compile(char *program_text){
     printf("    mov rsp, rbp\n");
     printf("    mov rax, 0\n");
     printf("    ret\n");
-}
-
-void CompileAboutStack(){
-    // move next char of '$'
-    ++program;
-    // stack number when current char is number
-    if ('0' <= *program && *program <= '9') {
-        long n = strtol(program, &program, 10);
-        printf("    push %d\n", n);
-    }
-    // single operation
-    switch (*program) {
-        case '+':
-            printf("    pop rdi\n");
-            printf("    pop rax\n");
-            printf("    add rax, rdi\n");
-            printf("    push rax\n");
-            ++program;
-            break;
-        case '-':
-            printf("    pop rdi\n");
-            printf("    pop rax\n");
-            printf("    sub rax, rdi\n");
-            printf("    push rax\n");
-            ++program;
-            break;
-    }
 }
