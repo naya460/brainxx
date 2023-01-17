@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include "compiler/compiler.h"
 
 #include "compiler/c-stack.h"
+#include "compiler/output.h"
 
 // declare variables
 static char *program;
@@ -10,11 +11,7 @@ static char *program;
 void Compile(char *program_text){
     program = program_text;
 
-    // output base assembly
-    printf(".intel_syntax noprefix\n");
-    printf(".globl main\n");
-    printf("main:\n");
-    printf("    mov rbp, rsp\n");
+    OutputStartAssembly();
 
     // operation each text in program
     while(*program != '\0') {
@@ -30,8 +27,5 @@ void Compile(char *program_text){
         }
     }
 
-    // output end assembly
-    printf("    mov rsp, rbp\n");
-    printf("    mov rax, 0\n");
-    printf("    ret\n");
+    OutputEndAssembly();
 }
