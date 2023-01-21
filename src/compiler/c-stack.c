@@ -12,12 +12,13 @@ void CompileAboutStackEqual(char **program_ptr);
 // ========================================
 
 void CompileAboutStack(char **program_ptr){
-    char *program = *program_ptr;
     // Push number when current char is number (push __num__)
+    char *program = *program_ptr;
     if ('0' <= *program && *program <= '9') {
         long num = strtol(program, &program, 10);
         OutputStackPush(num);
     }
+    *program_ptr = program;
     // Operation
     if (ConsumeE(program_ptr, '+', OutputStackAdd)) return; // stack add
     if (ConsumeE(program_ptr, '-', OutputStackSub)) return; // stack sub
@@ -26,27 +27,11 @@ void CompileAboutStack(char **program_ptr){
     if (ConsumeE(program_ptr, '%', OutputStackMod)) return; // stack mod
     // About Stack Equal
     if (Consume(program_ptr, '=', CompileAboutStackEqual)) return;
-    
-    *program_ptr = program;
 }
 
 void CompileAboutStackEqual(char **program_ptr){
-    char *program = *program_ptr;
     // operation
-    switch (*program) {
-        // ==
-        case '=':
-            OutputStackEqual();
-            break;
-        // =<
-        case '<':
-            OutputStackEqLess();
-            break;
-        // =>
-        case '>':
-            OutputStackEqGreater();
-            break;
-    }
-
-    *program_ptr = program;
+    if (ConsumeE(program_ptr, '=', OutputStackEq)) return; // stack eq
+    if (ConsumeE(program_ptr, '<', OutputStackEl)) return; // stack el
+    if (ConsumeE(program_ptr, '>', OutputStackEg)) return; // stack eg
 }

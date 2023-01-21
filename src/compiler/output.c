@@ -15,18 +15,18 @@ void CompileTo(ARCH architecture){
 
 void CompileTo_x86_64(){
     // general
-    OutputStartAssembly  = x86_64_StartAssembly;
-    OutputEndAssembly    = x86_64_EndAssembly;
+    OutputStartAssembly = x86_64_StartAssembly;
+    OutputEndAssembly   = x86_64_EndAssembly;
     // c-stack
-    OutputStackPush      = x86_64_StackPush;
-    OutputStackAdd       = x86_64_StackAdd;
-    OutputStackSub       = x86_64_StackSub;
-    OutputStackMul       = x86_64_StackMul;
-    OutputStackDiv       = x86_64_StackDiv;
-    OutputStackMod       = x86_64_StackMod;
-    OutputStackEqual     = x86_64_StackEqual;
-    OutputStackEqGreater = x86_64_StackEqGreater;
-    OutputStackEqLess    = x86_64_StackEqLess;
+    OutputStackPush     = x86_64_StackPush;
+    OutputStackAdd      = x86_64_StackAdd;
+    OutputStackSub      = x86_64_StackSub;
+    OutputStackMul      = x86_64_StackMul;
+    OutputStackDiv      = x86_64_StackDiv;
+    OutputStackMod      = x86_64_StackMod;
+    OutputStackEq       = x86_64_StackEq;
+    OutputStackEl       = x86_64_StackEl;
+    OutputStackEg       = x86_64_StackEg;
 }
 
 // general
@@ -47,8 +47,8 @@ void CompileTo_x86_64(){
 
  void (*OutputStackMod)() = NULL;
 
- void (*OutputStackEqual)() = NULL;
+ void (*OutputStackEq)() = NULL;
 
- void (*OutputStackEqGreater)() = NULL;
+ void (*OutputStackEl)() = NULL;
 
- void (*OutputStackEqLess)() = NULL;
+ void (*OutputStackEg)() = NULL;

@@ -56,7 +56,7 @@ void x86_64_StackMod(){
     printf("    push rdi\n");
 }
 
-void x86_64_StackEqual(){
+void x86_64_StackEq(){
     printf("    pop rdi\n");
     printf("    pop rax\n");
     printf("    cmp rax, rdi\n");
@@ -65,7 +65,7 @@ void x86_64_StackEqual(){
     printf("    push rax\n");
 }
 
-void x86_64_StackEqLess(){
+void x86_64_StackEl(){
     printf("    pop rdi\n");
     printf("    pop rax\n");
     printf("    cmp rax, rdi\n");
@@ -74,7 +74,7 @@ void x86_64_StackEqLess(){
     printf("    push rax\n");
 }
 
-void x86_64_StackEqGreater(){
+void x86_64_StackEg(){
     printf("    pop rdi\n");
     printf("    pop rax\n");
     printf("    cmp rdi, rax\n");

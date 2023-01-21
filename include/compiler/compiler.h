@@ -15,5 +15,5 @@ void Compile(char *program);
 // | $%       (stack mod)
 // | About Stack Equal
 // | | $==    (stack eq)
-// | | $=<    (stack le)
-// | | $=>    (stack lg)
+// | | $=<    (stack el)
+// | | $=>    (stack eg)

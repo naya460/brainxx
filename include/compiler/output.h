@@ -29,8 +29,8 @@ extern void (*OutputStackDiv)();
 
 extern void (*OutputStackMod)();
 
-extern void (*OutputStackEqual)();
+extern void (*OutputStackEq)();
 
-extern void (*OutputStackEqLess)();
+extern void (*OutputStackEl)();
 
-extern void (*OutputStackEqGreater)();
+extern void (*OutputStackEg)();
