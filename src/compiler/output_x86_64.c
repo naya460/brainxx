@@ -55,3 +55,12 @@ void x86_64_StackMod(){
     printf("    idiv rdi\n");
     printf("    push rdi\n");
 }
+
+void x86_64_StackEqual(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cmp rax, rdi\n");
+    printf("    sete al\n");
+    printf("    movzb rax, al\n");
+    printf("    push rax\n");
+}

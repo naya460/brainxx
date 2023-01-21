@@ -24,6 +24,7 @@ void CompileTo_x86_64(){
     OutputStackMul      = x86_64_StackMul;
     OutputStackDiv      = x86_64_StackDiv;
     OutputStackMod      = x86_64_StackMod;
+    OutputStackEqual    = x86_64_StackEqual;
 }
 
 // general
@@ -43,3 +44,5 @@ void CompileTo_x86_64(){
  void (*OutputStackDiv)() = NULL;
 
  void (*OutputStackMod)() = NULL;
+
+ void (*OutputStackEqual)() = NULL;

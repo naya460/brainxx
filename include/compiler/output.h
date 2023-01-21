@@ -9,7 +9,7 @@ enum ARCH {
 };
 
 // set up
-extern void CompileTo(ARCH architecture);
+void CompileTo(ARCH architecture);
 
 // general
 extern void (*OutputStartAssembly)();
@@ -28,3 +28,5 @@ extern void (*OutputStackMul)();
 extern void (*OutputStackDiv)();
 
 extern void (*OutputStackMod)();
+
+extern void (*OutputStackEqual)();

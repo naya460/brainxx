@@ -17,3 +17,5 @@ void x86_64_StackMul();
 void x86_64_StackDiv();
 
 void x86_64_StackMod();
+
+void x86_64_StackEqual();
