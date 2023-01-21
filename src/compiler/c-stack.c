@@ -10,8 +10,6 @@ void CompileAboutStackEqual(char **program_ptr);
 
 void CompileAboutStack(char **program_ptr){
     char *program = *program_ptr;
-    // move next char of '$'
-    ++program;
     // push number when current char is number
     if ('0' <= *program && *program <= '9') {
         long num = strtol(program, &program, 10);
