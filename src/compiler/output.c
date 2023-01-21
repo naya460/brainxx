@@ -32,3 +32,10 @@ void OutputStackSub(){
     printf("    sub rax, rdi\n");
     printf("    push rax\n");
 }
+
+void OutputStackMul(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    mul rax, rdi\n");
+    printf("    push rax\n");
+}

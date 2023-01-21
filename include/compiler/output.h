@@ -11,3 +11,5 @@ void OutputStackPush(long num);
 void OutputStackAdd();
 
 void OutputStackSub();
+
+void OutputStackMul();

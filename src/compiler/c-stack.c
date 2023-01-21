@@ -24,6 +24,10 @@ void CompileAboutStack(char **program_ptr){
             OutputStackSub();
             ++program;
             break;
+        case '*':
+            OutputStackMul();
+            ++program;
+            break;
     }
     *program_ptr = program;
 }
