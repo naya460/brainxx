@@ -35,5 +35,7 @@ file_test t-stack-push-003
 file_test t-stack-op-add-001
 file_test t-stack-op-sub-001
 file_test t-stack-op-mul-001
+file_test t-stack-op-div-001
+file_test t-stack-op-mod-001
 
 echo all tests are successful

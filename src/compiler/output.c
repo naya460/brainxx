@@ -39,3 +39,19 @@ void OutputStackMul(){
     printf("    mul rax, rdi\n");
     printf("    push rax\n");
 }
+
+void OutputStackDiv(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cqo\n");
+    printf("    idiv rdi\n");
+    printf("    push rax\n");
+}
+
+void OutputStackMod(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cqo\n");
+    printf("    idiv rdi\n");
+    printf("    push rdi\n");
+}

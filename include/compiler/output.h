@@ -13,3 +13,7 @@ void OutputStackAdd();
 void OutputStackSub();
 
 void OutputStackMul();
+
+void OutputStackDiv();
+
+void OutputStackMod();

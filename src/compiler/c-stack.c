@@ -28,6 +28,14 @@ void CompileAboutStack(char **program_ptr){
             OutputStackMul();
             ++program;
             break;
+        case '/':
+            OutputStackDiv();
+            ++program;
+            break;
+        case '%':
+            OutputStackMod();
+            ++program;
+            break;
     }
     *program_ptr = program;
 }
