@@ -13,12 +13,17 @@ expect() {
     diff tmp.s $expect
     
     if [ $? -ne 0 ]; then
-        echo test 
+        echo $input "->" $expect : failed
         exit 1
+    else
+        echo $input "->" $expect : ok
     fi
 }
 
 # tests
 expect sample.xx sample.s
+expect t-stack-push-001.xx t-stack-push-001.s
+expect t-stack-push-002.xx t-stack-push-002.s
+expect t-stack-push-003.xx t-stack-push-003.s
 
 echo all tests are successful
