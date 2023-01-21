@@ -11,6 +11,8 @@ static char *program;
 void Compile(char *program_text){
     program = program_text;
 
+    CompileTo(arch_x86_64);
+
     OutputStartAssembly();
 
     // operation each text in program

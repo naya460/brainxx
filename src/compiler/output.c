@@ -1,57 +1,45 @@
 #include "compiler/output.h"
 
-#include <stdio.h>
+#include "compiler/output_x86_64.h"
 
-void OutputStartAssembly(){
-    printf(".intel_syntax noprefix\n");
-    printf(".globl main\n");
-    printf("main:\n");
-    printf("    mov rbp, rsp\n");
+// prototype declaration
+void CompileTo_x86_64();
+
+void CompileTo(ARCH architecture){
+    switch (architecture) {
+        case arch_x86_64:
+            CompileTo_x86_64();
+            break;
+    }
 }
 
-void OutputEndAssembly(){
-    printf("    mov rsp, rbp\n");
-    printf("    mov rax, 0\n");
-    printf("    ret\n");
+void CompileTo_x86_64(){
+    // general
+    OutputStartAssembly = x86_64_StartAssembly;
+    OutputEndAssembly   = x86_64_EndAssembly;
+    // c-stack
+    OutputStackPush     = x86_64_StackPush;
+    OutputStackAdd      = x86_64_StackAdd;
+    OutputStackSub      = x86_64_StackSub;
+    OutputStackMul      = x86_64_StackMul;
+    OutputStackDiv      = x86_64_StackDiv;
+    OutputStackMod      = x86_64_StackMod;
 }
 
-void OutputStackPush(long num){
-    printf("    push %d\n", num);
-}
+// general
+ void (*OutputStartAssembly)() = NULL;
 
-void OutputStackAdd(){
-    printf("    pop rdi\n");
-    printf("    pop rax\n");
-    printf("    add rax, rdi\n");
-    printf("    push rax\n");
-}
+ void (*OutputEndAssembly)() = NULL;
 
-void OutputStackSub(){
-    printf("    pop rdi\n");
-    printf("    pop rax\n");
-    printf("    sub rax, rdi\n");
-    printf("    push rax\n");
-}
+// c-stack
+ void (*OutputStackPush)(long num) = NULL;
 
-void OutputStackMul(){
-    printf("    pop rdi\n");
-    printf("    pop rax\n");
-    printf("    mul rax, rdi\n");
-    printf("    push rax\n");
-}
+ void (*OutputStackAdd)() = NULL;
 
-void OutputStackDiv(){
-    printf("    pop rdi\n");
-    printf("    pop rax\n");
-    printf("    cqo\n");
-    printf("    idiv rdi\n");
-    printf("    push rax\n");
-}
+ void (*OutputStackSub)() = NULL;
 
-void OutputStackMod(){
-    printf("    pop rdi\n");
-    printf("    pop rax\n");
-    printf("    cqo\n");
-    printf("    idiv rdi\n");
-    printf("    push rdi\n");
-}
+ void (*OutputStackMul)() = NULL;
+
+ void (*OutputStackDiv)() = NULL;
+
+ void (*OutputStackMod)() = NULL;

@@ -1,19 +1,30 @@
 #pragma once
 
-// general
-void OutputStartAssembly();
+#include <stddef.h>
 
-void OutputEndAssembly();
+// architecture
+typedef enum ARCH ARCH;
+enum ARCH {
+    arch_x86_64,
+};
+
+// set up
+extern void CompileTo(ARCH architecture);
+
+// general
+extern void (*OutputStartAssembly)();
+
+extern void (*OutputEndAssembly)();
 
 // c-stack
-void OutputStackPush(long num);
+extern void (*OutputStackPush)(long num);
 
-void OutputStackAdd();
+extern void (*OutputStackAdd)();
 
-void OutputStackSub();
+extern void (*OutputStackSub)();
 
-void OutputStackMul();
+extern void (*OutputStackMul)();
 
-void OutputStackDiv();
+extern void (*OutputStackDiv)();
 
-void OutputStackMod();
+extern void (*OutputStackMod)();
