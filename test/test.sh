@@ -20,12 +20,19 @@ expect() {
     fi
 }
 
-# tests - stack
-expect t-stack-push-001.xx t-stack-push-001.s
-expect t-stack-push-002.xx t-stack-push-002.s
-expect t-stack-push-003.xx t-stack-push-003.s
+# call expect function without file extension
+file_test() {
+    input=$1.xx
+    expect=$1.s
+    expect $input $expect
+}
 
-expect t-stack-op-add-001.xx t-stack-op-add-001.s
-expect t-stack-op-sub-001.xx t-stack-op-sub-001.s
+# tests - stack
+file_test t-stack-push-001
+file_test t-stack-push-002
+file_test t-stack-push-003
+
+file_test t-stack-op-add-001
+file_test t-stack-op-sub-001
 
 echo all tests are successful
