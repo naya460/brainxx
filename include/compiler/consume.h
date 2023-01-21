@@ -9,3 +9,7 @@
 // 4. Call the function with program_ptr
 // 5. Return true
 bool Consume(char **program_ptr, char expect, void function(char **program_ptr));
+
+// The difference of the Consume Function is 4
+// 4. Call the function
+bool ConsumeE(char **program_ptr, char expect, void function(void));

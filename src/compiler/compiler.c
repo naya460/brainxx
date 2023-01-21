@@ -17,7 +17,7 @@ void Compile(char *program_text){
 
     // Interpret every char in the program
     while(*program != '\0') {
-        // About the Stack Process
+        // About Stack
         if (Consume(&program, '$', CompileAboutStack)) continue;
         ++program;
     }
