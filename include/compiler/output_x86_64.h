@@ -19,3 +19,7 @@ void x86_64_StackDiv();
 void x86_64_StackMod();
 
 void x86_64_StackEqual();
+
+void x86_64_StackEqLess();
+
+void x86_64_StackEqGreater();

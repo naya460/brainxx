@@ -39,7 +39,7 @@ void CompileAboutStack(char **program_ptr){
             OutputStackMod();
             ++program;
             break;
-        // == or => or =< or =!
+        // == or =< or => or =!
         case '=':
             CompileAboutStackEqual(&program);
             ++program;
@@ -57,6 +57,14 @@ void CompileAboutStackEqual(char **program_ptr){
         // ==
         case '=':
             OutputStackEqual();
+            break;
+        // =<
+        case '<':
+            OutputStackEqLess();
+            break;
+        // =>
+        case '>':
+            OutputStackEqGreater();
             break;
     }
 

@@ -64,3 +64,21 @@ void x86_64_StackEqual(){
     printf("    movzb rax, al\n");
     printf("    push rax\n");
 }
+
+void x86_64_StackEqLess(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cmp rax, rdi\n");
+    printf("    setle al\n");
+    printf("    movzb rax, al\n");
+    printf("    push rax\n");
+}
+
+void x86_64_StackEqGreater(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cmp rdi, rax\n");
+    printf("    setle al\n");
+    printf("    movzb rax, al\n");
+    printf("    push rax\n");
+}

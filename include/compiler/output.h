@@ -30,3 +30,7 @@ extern void (*OutputStackDiv)();
 extern void (*OutputStackMod)();
 
 extern void (*OutputStackEqual)();
+
+extern void (*OutputStackEqLess)();
+
+extern void (*OutputStackEqGreater)();
