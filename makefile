@@ -7,6 +7,10 @@ build :
 run :
 	@./build/src/bxx ${ARG} ${arg}
 
+.PHONY : test
+test:
+	./test/test.sh
+
 .PHONY : clean
 clean :
 	rm -rf build/
