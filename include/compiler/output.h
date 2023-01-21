@@ -2,35 +2,33 @@
 
 #include <stddef.h>
 
-// architecture
+// Architecture
 typedef enum ARCH ARCH;
 enum ARCH {
     arch_x86_64,
 };
 
+// Output Functions
+typedef enum OutputFunctions OFs;
+enum OutputFunctions {
+    // start of assembly
+    StartAssembly = 0,
+    // c-stack
+    StackAdd,
+    StackSub,
+    StackMul,
+    StackDiv,
+    StackMod,
+    StackEq,
+    StackEl,
+    StackEg,
+    // end of assembly
+    EndAssembly
+};
+extern void (*Output[EndAssembly + 1])(void);
+
 // set up
 void CompileTo(ARCH architecture);
 
-// general
-extern void (*OutputStartAssembly)();
-
-extern void (*OutputEndAssembly)();
-
 // c-stack
 extern void (*OutputStackPush)(long num);
-
-extern void (*OutputStackAdd)();
-
-extern void (*OutputStackSub)();
-
-extern void (*OutputStackMul)();
-
-extern void (*OutputStackDiv)();
-
-extern void (*OutputStackMod)();
-
-extern void (*OutputStackEq)();
-
-extern void (*OutputStackEl)();
-
-extern void (*OutputStackEg)();

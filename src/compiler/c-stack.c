@@ -20,18 +20,18 @@ void CompileAboutStack(char **program_ptr){
     }
     *program_ptr = program;
     // Operation
-    if (ConsumeE(program_ptr, '+', OutputStackAdd)) return; // stack add
-    if (ConsumeE(program_ptr, '-', OutputStackSub)) return; // stack sub
-    if (ConsumeE(program_ptr, '*', OutputStackMul)) return; // stack mul
-    if (ConsumeE(program_ptr, '/', OutputStackDiv)) return; // stack div
-    if (ConsumeE(program_ptr, '%', OutputStackMod)) return; // stack mod
+    if (ConsumeE(program_ptr, '+', Output[StackAdd])) return; // stack add
+    if (ConsumeE(program_ptr, '-', Output[StackSub])) return; // stack sub
+    if (ConsumeE(program_ptr, '*', Output[StackMul])) return; // stack mul
+    if (ConsumeE(program_ptr, '/', Output[StackDiv])) return; // stack div
+    if (ConsumeE(program_ptr, '%', Output[StackMod])) return; // stack mod
     // About Stack Equal
     if (Consume(program_ptr, '=', CompileAboutStackEqual)) return;
 }
 
 void CompileAboutStackEqual(char **program_ptr){
     // operation
-    if (ConsumeE(program_ptr, '=', OutputStackEq)) return; // stack eq
-    if (ConsumeE(program_ptr, '<', OutputStackEl)) return; // stack el
-    if (ConsumeE(program_ptr, '>', OutputStackEg)) return; // stack eg
+    if (ConsumeE(program_ptr, '=', Output[StackEq])) return; // stack eq
+    if (ConsumeE(program_ptr, '<', Output[StackEl])) return; // stack el
+    if (ConsumeE(program_ptr, '>', Output[StackEg])) return; // stack eg
 }

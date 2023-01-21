@@ -13,7 +13,7 @@ void Compile(char *program_text){
 
     CompileTo(arch_x86_64);
 
-    OutputStartAssembly();
+    Output[StartAssembly]();
 
     // Interpret every char in the program
     while(*program != '\0') {
@@ -22,5 +22,5 @@ void Compile(char *program_text){
         ++program;
     }
 
-    OutputEndAssembly();
+    Output[EndAssembly]();
 }

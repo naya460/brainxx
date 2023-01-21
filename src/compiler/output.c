@@ -5,6 +5,8 @@
 // prototype declaration
 void CompileTo_x86_64();
 
+// ========================================
+
 void CompileTo(ARCH architecture){
     switch (architecture) {
         case arch_x86_64:
@@ -15,40 +17,21 @@ void CompileTo(ARCH architecture){
 
 void CompileTo_x86_64(){
     // general
-    OutputStartAssembly = x86_64_StartAssembly;
-    OutputEndAssembly   = x86_64_EndAssembly;
+    Output[StartAssembly] = x86_64_StartAssembly;
+    Output[EndAssembly]   = x86_64_EndAssembly;
     // c-stack
-    OutputStackPush     = x86_64_StackPush;
-    OutputStackAdd      = x86_64_StackAdd;
-    OutputStackSub      = x86_64_StackSub;
-    OutputStackMul      = x86_64_StackMul;
-    OutputStackDiv      = x86_64_StackDiv;
-    OutputStackMod      = x86_64_StackMod;
-    OutputStackEq       = x86_64_StackEq;
-    OutputStackEl       = x86_64_StackEl;
-    OutputStackEg       = x86_64_StackEg;
+    OutputStackPush       = x86_64_StackPush;
+    Output[StackAdd]      = x86_64_StackAdd;
+    Output[StackSub]      = x86_64_StackSub;
+    Output[StackMul]      = x86_64_StackMul;
+    Output[StackDiv]      = x86_64_StackDiv;
+    Output[StackMod]      = x86_64_StackMod;
+    Output[StackEq]       = x86_64_StackEq;
+    Output[StackEl]       = x86_64_StackEl;
+    Output[StackEg]       = x86_64_StackEg;
 }
 
-// general
- void (*OutputStartAssembly)() = NULL;
-
- void (*OutputEndAssembly)() = NULL;
+void (*Output[EndAssembly + 1])(void) = { NULL };
 
 // c-stack
- void (*OutputStackPush)(long num) = NULL;
-
- void (*OutputStackAdd)() = NULL;
-
- void (*OutputStackSub)() = NULL;
-
- void (*OutputStackMul)() = NULL;
-
- void (*OutputStackDiv)() = NULL;
-
- void (*OutputStackMod)() = NULL;
-
- void (*OutputStackEq)() = NULL;
-
- void (*OutputStackEl)() = NULL;
-
- void (*OutputStackEg)() = NULL;
+void (*OutputStackPush)(long num) = NULL;
