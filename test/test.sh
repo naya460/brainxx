@@ -40,5 +40,7 @@ file_test t-stack-op-mod-001
 file_test t-stack-op-equal-001
 file_test t-stack-op-eqless-001
 file_test t-stack-op-eqgreater-001
+file_test t-stack-op-cl-001
+file_test t-stack-op-cg-001
 
 echo all tests are successful

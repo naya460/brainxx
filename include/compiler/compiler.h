@@ -13,6 +13,8 @@ void Compile(char *program);
 // | $*       (stack mul)
 // | $/       (stack div)
 // | $%       (stack mod)
+// | $<       (stack cl)
+// | $>       (stack cg)
 // | About Stack Equal
 // | | $==    (stack eq)
 // | | $=<    (stack el)

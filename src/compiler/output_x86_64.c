@@ -56,6 +56,24 @@ void x86_64_StackMod(){
     printf("    push rdi\n");
 }
 
+void x86_64_StackCl(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cmp rax, rdi\n");
+    printf("    setl al\n");
+    printf("    movzb rax, al\n");
+    printf("    push rax\n");
+}
+
+void x86_64_StackCg(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cmp rdi, rax\n");
+    printf("    setl al\n");
+    printf("    movzb rax, al\n");
+    printf("    push rax\n");
+}
+
 void x86_64_StackEq(){
     printf("    pop rdi\n");
     printf("    pop rax\n");

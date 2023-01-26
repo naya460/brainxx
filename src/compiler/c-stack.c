@@ -25,6 +25,8 @@ void CompileAboutStack(char **program_ptr){
     if (ConsumeE(program_ptr, '*', Output[StackMul])) return; // stack mul
     if (ConsumeE(program_ptr, '/', Output[StackDiv])) return; // stack div
     if (ConsumeE(program_ptr, '%', Output[StackMod])) return; // stack mod
+    if (ConsumeE(program_ptr, '<', Output[StackCl])) return;  // stack cl
+    if (ConsumeE(program_ptr, '>', Output[StackCg])) return;  // stack cg
     // About Stack Equal
     if (Consume(program_ptr, '=', CompileAboutStackEqual)) return;
 }

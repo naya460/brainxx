@@ -26,6 +26,8 @@ void CompileTo_x86_64(){
     Output[StackMul]      = x86_64_StackMul;
     Output[StackDiv]      = x86_64_StackDiv;
     Output[StackMod]      = x86_64_StackMod;
+    Output[StackCl]       = x86_64_StackCl;
+    Output[StackCg]       = x86_64_StackCg;
     Output[StackEq]       = x86_64_StackEq;
     Output[StackEl]       = x86_64_StackEl;
     Output[StackEg]       = x86_64_StackEg;
