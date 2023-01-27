@@ -2,12 +2,18 @@
 
 cd $(dirname $0)
 bxx=../build/src/bxx
+sd=.
+
+# set subdirectory
+set_sd() {
+    sd=$1
+}
 
 # compile and check output
 # (intput file path, expected output file)
 expect() {
-    input=$1
-    expect=$2
+    input=$sd/$1
+    expect=$sd/$2
 
     $bxx $input > tmp.s
     diff tmp.s $expect
@@ -27,11 +33,14 @@ file_test() {
     expect $input $expect
 }
 
-# tests - stack
+# tests - stack - push
+set_sd stack/push
 file_test t-stack-push-001
 file_test t-stack-push-002
 file_test t-stack-push-003
 
+# tests - stack - op
+set_sd stack/op
 file_test t-stack-op-add-001
 file_test t-stack-op-sub-001
 file_test t-stack-op-mul-001
