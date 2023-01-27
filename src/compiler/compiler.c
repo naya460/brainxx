@@ -1,6 +1,7 @@
 #include "compiler/compiler.h"
 
 #include "compiler/c-stack.h"
+#include "compiler/c-ctrl.h"
 #include "compiler/output.h"
 
 // declare variables
@@ -19,6 +20,8 @@ void Compile(char *program_text){
     while(*program != '\0') {
         // About Stack
         if (Consume(&program, '$', CompileAboutStack)) continue;
+        // About Ctrl
+        if (Consume(&program, '#', CompileAboutCtrl)) continue;
         ++program;
     }
 

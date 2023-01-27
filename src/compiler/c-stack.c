@@ -1,6 +1,5 @@
 #include "compiler/c-stack.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 
 #include "compiler/consume.h"

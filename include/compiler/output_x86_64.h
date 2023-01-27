@@ -27,3 +27,5 @@ void x86_64_StackEq();
 void x86_64_StackEl();
 
 void x86_64_StackEg();
+
+void x86_64_CtrlRet();

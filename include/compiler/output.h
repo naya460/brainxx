@@ -24,6 +24,7 @@ enum OutputFunctions {
     StackEq,
     StackEl,
     StackEg,
+    CtrlRet,
     // end of assembly
     EndAssembly
 };

@@ -52,4 +52,8 @@ file_test eg-001
 file_test cl-001
 file_test cg-001
 
+# tests - ctrl
+set_sd ctrl
+file_test ret-001
+
 echo all tests are successful

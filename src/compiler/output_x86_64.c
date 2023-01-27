@@ -100,3 +100,9 @@ void x86_64_StackEg(){
     printf("    movzb rax, al\n");
     printf("    push rax\n");
 }
+
+void x86_64_CtrlRet(){
+    printf("    pop rax\n");
+    printf("    mov rsp, rbp\n");
+    printf("    ret\n");
+}
