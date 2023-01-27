@@ -32,6 +32,8 @@ void CompileTo_x86_64(){
     Output[StackEl]       = x86_64_StackEl;
     Output[StackEg]       = x86_64_StackEg;
     Output[CtrlRet]       = x86_64_CtrlRet;
+    Output[CtrlRepb]      = x86_64_CtrlRepb;
+    Output[CtrlRepe]      = x86_64_CtrlRepe;
 }
 
 void (*Output[EndAssembly + 1])(void) = { NULL };

@@ -1,5 +1,6 @@
 #include "compiler/compiler.h"
 
+#include "compiler/consume.h"
 #include "compiler/c-stack.h"
 #include "compiler/c-ctrl.h"
 #include "compiler/output.h"
@@ -22,6 +23,8 @@ void Compile(char *program_text){
         if (Consume(&program, '$', CompileAboutStack)) continue;
         // About Ctrl
         if (Consume(&program, '#', CompileAboutCtrl)) continue;
+        if (ConsumeE(&program, '[', Output[CtrlRepb])) continue; // ctrl repb
+        if (ConsumeE(&program, ']', Output[CtrlRepe])) continue; // ctrl repe
         ++program;
     }
 

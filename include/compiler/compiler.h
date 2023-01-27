@@ -1,7 +1,5 @@
 #pragma once
 
-#include "compiler/consume.h"
-
 // Compile program
 void Compile(char *program);
 
@@ -19,3 +17,7 @@ void Compile(char *program);
 // | | $==    (stack eq)
 // | | $=<    (stack el)
 // | | $=>    (stack eg)
+// About Ctrl
+// | #<       (ctrl ret)
+// | [        (ctrl repb)
+// | ]        (ctrl repe)

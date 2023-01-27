@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+static int rep_depth = 0;
+
 void x86_64_StartAssembly(){
     printf(".intel_syntax noprefix\n");
     printf(".globl main\n");
@@ -105,4 +107,17 @@ void x86_64_CtrlRet(){
     printf("    pop rax\n");
     printf("    mov rsp, rbp\n");
     printf("    ret\n");
+}
+
+void x86_64_CtrlRepb(){
+    printf(".Lbegin%d:\n", rep_depth);
+    printf("    pop rax\n");
+    printf("    push rax\n");
+    printf("    cmp rax, 0\n");
+    printf("    je .Lend%d\n", rep_depth++);
+}
+
+void x86_64_CtrlRepe(){
+    printf("    jmp .Lbegin%d\n", --rep_depth);
+    printf(".Lend%d:\n", rep_depth);
 }

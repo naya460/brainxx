@@ -28,4 +28,9 @@ void x86_64_StackEl();
 
 void x86_64_StackEg();
 
+// c-ctrl
 void x86_64_CtrlRet();
+
+void x86_64_CtrlRepb();
+
+void x86_64_CtrlRepe();
