@@ -35,21 +35,21 @@ file_test() {
 
 # tests - stack - push
 set_sd stack/push
-file_test t-stack-push-001
-file_test t-stack-push-002
-file_test t-stack-push-003
+file_test 001
+file_test 002
+file_test 003
 
 # tests - stack - op
 set_sd stack/op
-file_test t-stack-op-add-001
-file_test t-stack-op-sub-001
-file_test t-stack-op-mul-001
-file_test t-stack-op-div-001
-file_test t-stack-op-mod-001
-file_test t-stack-op-eq-001
-file_test t-stack-op-el-001
-file_test t-stack-op-eg-001
-file_test t-stack-op-cl-001
-file_test t-stack-op-cg-001
+file_test add-001
+file_test sub-001
+file_test mul-001
+file_test div-001
+file_test mod-001
+file_test eq-001
+file_test el-001
+file_test eg-001
+file_test cl-001
+file_test cg-001
 
 echo all tests are successful
