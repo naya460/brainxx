@@ -37,9 +37,9 @@ file_test t-stack-op-sub-001
 file_test t-stack-op-mul-001
 file_test t-stack-op-div-001
 file_test t-stack-op-mod-001
-file_test t-stack-op-equal-001
-file_test t-stack-op-eqless-001
-file_test t-stack-op-eqgreater-001
+file_test t-stack-op-eq-001
+file_test t-stack-op-el-001
+file_test t-stack-op-eg-001
 file_test t-stack-op-cl-001
 file_test t-stack-op-cg-001
 
