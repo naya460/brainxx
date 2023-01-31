@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd $(dirname $0)
-bxx=../build/src/bxx
+bxx=../../build/src/bxx
 sd=.
 
 # set subdirectory
