@@ -52,3 +52,11 @@ expect 002-greater.xx 11
 expect 003-equal.xx 26
 expect 004-twice.xx 19
 expect 005-double.xx 23
+
+# tests - 002-stack - 003-sub
+set_sd 002-stack/003-sub
+expect 001-greater.xx 2
+expect 002-less.xx 0
+expect 003-equal.xx 0
+expect 004-twice.xx 26
+expect 005-double.xx 173
