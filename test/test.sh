@@ -4,7 +4,7 @@
 echo "=== Compile test ==="
 ./test/compile/test.sh
 if [ $? -ne 0 ]; then
-    echo "Compile test is faild"
+    echo "Compile Test is faild"
     exit 1
 fi
 
@@ -12,7 +12,7 @@ fi
 echo "=== Run test ==="
 ./test/run/test.sh
 if [ $? -ne 0 ]; then
-    echo "Compile test is faild"
+    echo "Run Test is faild"
     exit 1
 fi
 

@@ -47,3 +47,8 @@ expect 006-uint-overflow.xx 0
 
 # tests - 002-stack - 002-add
 set_sd 002-stack/002-add
+expect 001-less.xx 8
+expect 002-greater.xx 11
+expect 003-equal.xx 26
+expect 004-twice.xx 19
+expect 005-double.xx 23

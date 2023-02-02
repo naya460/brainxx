@@ -18,10 +18,10 @@ char *ReadFile(const char *path){
     long size = status.st_size;
 
     // read file
-    char *str = (char*)malloc(sizeof(char) * (size + 1));
-    int read_count = fread(str, sizeof(char), size + 1, file);
+    char *str = (char*)calloc(sizeof(char), (size + 1));
+    int read_count = fread(str, sizeof(char), size, file);
     if (size != read_count) Error(2, "failed to read file\n");
-    str[read_count + 1] = '\0';
+    str[read_count] = '\0';
 
     // close file
     fclose(file);
