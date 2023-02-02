@@ -58,5 +58,3 @@ file_test ret-001
 file_test rep-001
 file_test rep-002
 file_test rep-003
-
-echo all tests are successful

@@ -20,7 +20,7 @@ char *ReadFile(const char *path){
     // read file
     char *str = (char*)malloc(sizeof(char) * (size + 1));
     int read_count = fread(str, sizeof(char), size + 1, file);
-    if (read_count == 0) Error(2, "failed to read file\n");
+    if (size != read_count) Error(2, "failed to read file\n");
     str[read_count + 1] = '\0';
 
     // close file

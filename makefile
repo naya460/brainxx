@@ -9,7 +9,7 @@ run :
 
 .PHONY : test
 test:
-	./test/compile/test.sh
+	@./test/test.sh
 
 .PHONY : clean
 clean :
