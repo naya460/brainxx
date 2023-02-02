@@ -68,3 +68,12 @@ expect 002-greater.xx 57
 expect 003-equal.xx 121
 expect 004-twice.xx 90
 expect 005-double.xx 120
+
+# tests - 002-stack - 005-div
+set_sd 002-stack/005-div
+expect 001-greater.xx 2
+expect 002-less.xx 0
+expect 003-equal.xx 1
+expect 004-twice.xx 8
+expect 005-double.xx 10
+expect 006-round.xx 3
