@@ -60,3 +60,11 @@ expect 002-less.xx 0
 expect 003-equal.xx 0
 expect 004-twice.xx 26
 expect 005-double.xx 173
+
+# tests - 002-stack - 004-mul
+set_sd 002-stack/004-mul
+expect 001-less.xx 96
+expect 002-greater.xx 57
+expect 003-equal.xx 121
+expect 004-twice.xx 90
+expect 005-double.xx 120

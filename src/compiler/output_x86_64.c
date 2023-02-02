@@ -38,7 +38,7 @@ void x86_64_StackSub(){
 void x86_64_StackMul(){
     printf("    pop rdi\n");
     printf("    pop rax\n");
-    printf("    mul rax, rdi\n");
+    printf("    imul rax, rdi\n");
     printf("    push rax\n");
 }
 

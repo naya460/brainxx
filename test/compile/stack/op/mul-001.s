@@ -6,7 +6,7 @@ main:
     push 6
     pop rdi
     pop rax
-    mul rax, rdi
+    imul rax, rdi
     push rax
     mov rsp, rbp
     mov rax, 0
