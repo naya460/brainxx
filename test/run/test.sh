@@ -98,8 +98,14 @@ expect 001-less.xx 0
 expect 002-greater.xx 1
 expect 003-equal.xx 0
 
-# tests - 002-stack - 008-eq
+# tests - 002-stack - 009-eq
 set_sd 002-stack/009-eq
 expect 001-less.xx 0
+expect 002-greater.xx 0
+expect 003-equal.xx 1
+
+# tests - 002-stack - 010-el
+set_sd 002-stack/010-el
+expect 001-less.xx 1
 expect 002-greater.xx 0
 expect 003-equal.xx 1
