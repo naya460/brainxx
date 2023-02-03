@@ -85,3 +85,9 @@ expect 002-less.xx 4
 expect 003-equal.xx 0
 expect 004-twice.xx 1
 expect 005-double.xx 2
+
+# tests - 002-stack - 007-cl
+set_sd 002-stack/007-cl
+expect 001-less.xx 1
+expect 002-greater.xx 0
+expect 003-equal.xx 0
