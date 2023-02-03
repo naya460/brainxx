@@ -24,6 +24,7 @@ enum OutputFunctions {
     StackEq,
     StackEl,
     StackEg,
+    StackNe,
     CtrlRet,
     CtrlRepb,
     CtrlRepe,

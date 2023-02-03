@@ -115,3 +115,9 @@ set_sd 002-stack/011-eg
 expect 001-less.xx 0
 expect 002-greater.xx 1
 expect 003-equal.xx 1
+
+# tests - 002-stack - 012-ne
+set_sd 002-stack/012-ne
+expect 001-less.xx 1
+expect 002-greater.xx 1
+expect 003-equal.xx 0

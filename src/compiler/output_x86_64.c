@@ -103,6 +103,15 @@ void x86_64_StackEg(){
     printf("    push rax\n");
 }
 
+void x86_64_StackNe(){
+    printf("    pop rdi\n");
+    printf("    pop rax\n");
+    printf("    cmp rax, rdi\n");
+    printf("    setne al\n");
+    printf("    movzb rax, al\n");
+    printf("    push rax\n");
+}
+
 void x86_64_CtrlRet(){
     printf("    pop rax\n");
     printf("    mov rsp, rbp\n");

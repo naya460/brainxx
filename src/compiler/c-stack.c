@@ -35,4 +35,5 @@ void CompileAboutStackEqual(char **program_ptr){
     if (ConsumeE(program_ptr, '=', Output[StackEq])) return; // stack eq
     if (ConsumeE(program_ptr, '<', Output[StackEl])) return; // stack el
     if (ConsumeE(program_ptr, '>', Output[StackEg])) return; // stack eg
+    if (ConsumeE(program_ptr, '!', Output[StackNe])) return; // stack ne
 }

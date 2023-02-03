@@ -17,6 +17,7 @@ void Compile(char *program);
 // | | $==    (stack eq)
 // | | $=<    (stack el)
 // | | $=>    (stack eg)
+// | | $=!    (stack ne)
 // About Ctrl
 // | #<       (ctrl ret)
 // | [        (ctrl repb)
