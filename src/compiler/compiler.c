@@ -23,6 +23,8 @@ void Compile(char *program_text){
         if (Consume(&program, '$', CompileAboutStack)) continue;
         // About Ctrl
         if (Consume(&program, '#', CompileAboutCtrl)) continue;
+        if (ConsumeE(&program, '<', Output[CtrlSpl])) continue;  // ctrl spl
+        if (ConsumeE(&program, '>', Output[CtrlSpr])) continue;  // ctrl spl
         if (ConsumeE(&program, '[', Output[CtrlRepb])) continue; // ctrl repb
         if (ConsumeE(&program, ']', Output[CtrlRepe])) continue; // ctrl repe
         ++program;

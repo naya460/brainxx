@@ -118,6 +118,14 @@ void x86_64_CtrlRet(){
     printf("    ret\n");
 }
 
+void x86_64_CtrlSpl(){
+    printf("    add rsp, 8\n");
+}
+
+void x86_64_CtrlSpr(){
+    printf("    sub rsp, 8\n");
+}
+
 void x86_64_CtrlRepb(){
     printf(".Lbegin%d:\n", rep_depth);
     printf("    pop rax\n");

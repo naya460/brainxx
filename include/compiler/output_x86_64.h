@@ -33,6 +33,10 @@ void x86_64_StackNe();
 // c-ctrl
 void x86_64_CtrlRet();
 
+void x86_64_CtrlSpl();
+
+void x86_64_CtrlSpr();
+
 void x86_64_CtrlRepb();
 
 void x86_64_CtrlRepe();

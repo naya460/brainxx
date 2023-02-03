@@ -33,6 +33,8 @@ void CompileTo_x86_64(){
     Output[StackEg]       = x86_64_StackEg;
     Output[StackNe]       = x86_64_StackNe;
     Output[CtrlRet]       = x86_64_CtrlRet;
+    Output[CtrlSpl]       = x86_64_CtrlSpl;
+    Output[CtrlSpr]       = x86_64_CtrlSpr;
     Output[CtrlRepb]      = x86_64_CtrlRepb;
     Output[CtrlRepe]      = x86_64_CtrlRepe;
 }

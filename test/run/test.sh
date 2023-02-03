@@ -121,3 +121,15 @@ set_sd 002-stack/012-ne
 expect 001-less.xx 1
 expect 002-greater.xx 1
 expect 003-equal.xx 0
+
+# tests - 003-ctrl - 001-spl
+set_sd 003-ctrl/001-spl
+expect 001-single.xx 4
+expect 002-double.xx 5
+expect 003-inner.xx 15
+
+# tests - 003-ctrl - 002-spr
+set_sd 003-ctrl/002-spr
+expect 001-single.xx 7
+expect 002-double.xx 13
+expect 003-inner.xx 104

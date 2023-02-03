@@ -20,5 +20,7 @@ void Compile(char *program);
 // | | $=!    (stack ne)
 // About Ctrl
 // | #<       (ctrl ret)
+// | <        (ctrl spl)
+// | >        (ctrl spr)
 // | [        (ctrl repb)
 // | ]        (ctrl repe)
