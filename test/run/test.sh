@@ -77,3 +77,11 @@ expect 003-equal.xx 1
 expect 004-twice.xx 8
 expect 005-double.xx 10
 expect 006-round.xx 3
+
+# tests - 002-stack - 006-mod
+set_sd 002-stack/006-mod
+expect 001-greater.xx 1
+expect 002-less.xx 4
+expect 003-equal.xx 0
+expect 004-twice.xx 1
+expect 005-double.xx 2

@@ -8,7 +8,7 @@ main:
     pop rax
     cqo
     idiv rdi
-    push rdi
+    push rdx
     mov rsp, rbp
     mov rax, 0
     ret

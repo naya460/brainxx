@@ -55,7 +55,7 @@ void x86_64_StackMod(){
     printf("    pop rax\n");
     printf("    cqo\n");
     printf("    idiv rdi\n");
-    printf("    push rdi\n");
+    printf("    push rdx\n");
 }
 
 void x86_64_StackCl(){
