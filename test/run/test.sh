@@ -133,3 +133,11 @@ set_sd 003-ctrl/002-spr
 expect 001-single.xx 7
 expect 002-double.xx 13
 expect 003-inner.xx 104
+
+# tests - 003-ctrl - 003-rep
+set_sd 003-ctrl/003-rep
+expect 001-if-true.xx 1
+expect 002-if-false.xx 3
+expect 003-if-else.xx 12
+expect 004-rep.xx 32
+expect 005-rep-if.xx 15

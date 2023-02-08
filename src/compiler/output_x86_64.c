@@ -3,6 +3,8 @@
 #include <stdio.h>
 
 static int rep_depth = 0;
+static int rep_c = 0;
+static int rep_c_ed[100] = {0};
 
 void x86_64_StartAssembly(){
     printf(".intel_syntax noprefix\n");
@@ -127,14 +129,16 @@ void x86_64_CtrlSpr(){
 }
 
 void x86_64_CtrlRepb(){
-    printf(".Lbegin%d:\n", rep_depth);
+    printf(".Lbegin%d:\n", rep_c);
     printf("    pop rax\n");
     printf("    push rax\n");
     printf("    cmp rax, 0\n");
-    printf("    je .Lend%d\n", rep_depth++);
+    printf("    je .Lend%d\n", rep_c);
+    rep_c_ed[rep_depth++] = rep_c++;
 }
 
 void x86_64_CtrlRepe(){
-    printf("    jmp .Lbegin%d\n", --rep_depth);
-    printf(".Lend%d:\n", rep_depth);
+    int dep = rep_c_ed[--rep_depth];
+    printf("    jmp .Lbegin%d\n", dep);
+    printf(".Lend%d:\n", dep);
 }
