@@ -7,6 +7,7 @@
 
 // prototype declaration
 void CompileAboutStackEqual(char **program_ptr);
+void CompileAboutStackPtr(char **program_ptr);
 
 // ========================================
 
@@ -28,12 +29,21 @@ void CompileAboutStack(char **program_ptr){
     if (ConsumeE(program_ptr, '>', Output[StackCg])) return;  // stack cg
     // About Stack Equal
     if (Consume(program_ptr, '=', CompileAboutStackEqual)) return;
+    // About Stack Ptr
+    if (Consume(program_ptr, ':', CompileAboutStackPtr)) return;
 }
 
 void CompileAboutStackEqual(char **program_ptr){
-    // operation
+    // Operation
     if (ConsumeE(program_ptr, '=', Output[StackEq])) return; // stack eq
     if (ConsumeE(program_ptr, '<', Output[StackEl])) return; // stack el
     if (ConsumeE(program_ptr, '>', Output[StackEg])) return; // stack eg
     if (ConsumeE(program_ptr, '!', Output[StackNe])) return; // stack ne
+}
+
+void CompileAboutStackPtr(char **program_ptr){
+    // Operation
+    if (ConsumeE(program_ptr, '^', Output[PushCptr])) return; // push cptr
+    if (ConsumeE(program_ptr, '~', Output[PushBptr])) return; // push bptr
+    if (ConsumeE(program_ptr, '<', Output[MovCptr])) return;  // mov  cptr
 }

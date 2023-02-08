@@ -30,6 +30,12 @@ void x86_64_StackEg();
 
 void x86_64_StackNe();
 
+void x86_64_PushCptr();
+
+void x86_64_PushBptr();
+
+void x86_64_MovCptr();
+
 // c-ctrl
 void x86_64_CtrlRet();
 

@@ -114,6 +114,21 @@ void x86_64_StackNe(){
     printf("    push rax\n");
 }
 
+void x86_64_PushCptr(){
+    printf("    push rsp\n");
+}
+
+void x86_64_PushBptr(){
+    printf("    mov rax, rbp\n");
+    printf("    sub rax, 8\n");
+    printf("    push rax\n");
+}
+
+void x86_64_MovCptr(){
+    printf("    pop rax\n");
+    printf("    mov rsp, rax\n");
+}
+
 void x86_64_CtrlRet(){
     printf("    pop rax\n");
     printf("    mov rsp, rbp\n");

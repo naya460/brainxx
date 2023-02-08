@@ -18,6 +18,10 @@ void Compile(char *program);
 // | | $=<    (stack el)
 // | | $=>    (stack eg)
 // | | $=!    (stack ne)
+// | About Stack Ptr
+// | | $:^    (push cptr)
+// | | $:~    (push bptr)
+// | | $:<    (mov cptr)
 // About Ctrl
 // | #<       (ctrl ret)
 // | <        (ctrl spl)

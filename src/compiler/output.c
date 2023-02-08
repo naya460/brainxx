@@ -32,6 +32,9 @@ void CompileTo_x86_64(){
     Output[StackEl]       = x86_64_StackEl;
     Output[StackEg]       = x86_64_StackEg;
     Output[StackNe]       = x86_64_StackNe;
+    Output[PushCptr]      = x86_64_PushCptr;
+    Output[PushBptr]      = x86_64_PushBptr;
+    Output[MovCptr]       = x86_64_MovCptr;
     Output[CtrlRet]       = x86_64_CtrlRet;
     Output[CtrlSpl]       = x86_64_CtrlSpl;
     Output[CtrlSpr]       = x86_64_CtrlSpr;

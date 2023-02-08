@@ -122,6 +122,11 @@ expect 001-less.xx 1
 expect 002-greater.xx 1
 expect 003-equal.xx 0
 
+# tests - 002-stack - 013-ptr
+set_sd 002-stack/013-ptr
+expect 001-base-mov.xx 5
+expect 002-cur-mov.xx 48
+
 # tests - 003-ctrl - 001-spl
 set_sd 003-ctrl/001-spl
 expect 001-single.xx 4
