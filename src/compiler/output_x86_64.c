@@ -78,6 +78,18 @@ void x86_64_StackCg(){
     printf("    push rax\n");
 }
 
+void x86_64_StackInc(){
+    printf("    pop rax\n");
+    printf("    add rax, 1\n");
+    printf("    push rax\n");
+}
+
+void x86_64_StackDec(){
+    printf("    pop rax\n");
+    printf("    sub rax, 1\n");
+    printf("    push rax\n");
+}
+
 void x86_64_StackEq(){
     printf("    pop rdi\n");
     printf("    pop rax\n");

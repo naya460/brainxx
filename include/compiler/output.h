@@ -21,6 +21,8 @@ enum OutputFunctions {
     StackMod,
     StackCl,
     StackCg,
+    StackInc,
+    StackDec,
     StackEq,
     StackEl,
     StackEg,

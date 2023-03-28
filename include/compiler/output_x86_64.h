@@ -22,6 +22,10 @@ void x86_64_StackCl();
 
 void x86_64_StackCg();
 
+void x86_64_StackInc();
+
+void x86_64_StackDec();
+
 void x86_64_StackEq();
 
 void x86_64_StackEl();

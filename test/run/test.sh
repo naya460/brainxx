@@ -127,6 +127,11 @@ set_sd 002-stack/013-ptr
 expect 001-base-mov.xx 5
 expect 002-cur-mov.xx 48
 
+# tests - 002-stack - 014-inc_dec
+set_sd 002-stack/014-inc_dec
+expect 001-inc.xx 7
+expect 002-dec.xx 9
+
 # tests - 003-ctrl - 001-spl
 set_sd 003-ctrl/001-spl
 expect 001-single.xx 4

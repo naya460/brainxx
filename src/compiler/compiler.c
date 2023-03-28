@@ -21,6 +21,8 @@ void Compile(char *program_text){
     while(*program != '\0') {
         // About Stack
         if (Consume(&program, '$', CompileAboutStack)) continue;
+        if (ConsumeE(&program, '+', Output[StackInc])) continue;
+        if (ConsumeE(&program, '-', Output[StackDec])) continue;
         // About Ctrl
         if (Consume(&program, '#', CompileAboutCtrl)) continue;
         if (ConsumeE(&program, '<', Output[CtrlSpl])) continue;  // ctrl spl
