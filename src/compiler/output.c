@@ -42,6 +42,7 @@ void CompileTo_x86_64(){
     Output[CtrlSpr]       = x86_64_CtrlSpr;
     Output[CtrlRepb]      = x86_64_CtrlRepb;
     Output[CtrlRepe]      = x86_64_CtrlRepe;
+    Output[IoCout]        = x86_64_IoCout;
 }
 
 void (*Output[EndAssembly + 1])(void) = { NULL };

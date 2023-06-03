@@ -20,13 +20,25 @@ expect() {
     $bxx $input > tmp.s
     $assembler tmp.s -o tmp.elf
 
-    ./tmp.elf
+    ./tmp.elf >> /dev/null
     ret_num=$?
 
     if [ $ret_num -eq $expect ]; then
         echo $input ":" $expect "=" $ret_num : ok
     else
         echo $input ":" $expect "=" $ret_num : failed
+        exit 1
+    fi
+
+    if [ -z $3 ]; then
+        return 0
+    fi
+
+    out_text="$(./tmp.elf | tr -d '\0')"
+    if [ $3 = $out_text ]; then
+        echo $input ":" "output text" "=" $out_text : ok
+    else
+        echo $input ":" "output text" "=" $out_text : false
         exit 1
     fi
 }
@@ -151,3 +163,7 @@ expect 002-if-false.xx 3
 expect 003-if-else.xx 12
 expect 004-rep.xx 32
 expect 005-rep-if.xx 15
+
+# tests - 004-io
+set_sd 004-io
+expect 001-cout.xx 0 "OK"

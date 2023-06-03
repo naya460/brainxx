@@ -30,3 +30,5 @@ void Compile(char *program);
 // | >        (ctrl spr)
 // | [        (ctrl repb)
 // | ]        (ctrl repe)
+// About IO
+// | .        (io cout)

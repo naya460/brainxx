@@ -29,6 +29,8 @@ void Compile(char *program_text){
         if (ConsumeE(&program, '>', Output[CtrlSpr])) continue;  // ctrl spl
         if (ConsumeE(&program, '[', Output[CtrlRepb])) continue; // ctrl repb
         if (ConsumeE(&program, ']', Output[CtrlRepe])) continue; // ctrl repe
+        // About IO
+        if (ConsumeE(&program, '.', Output[IoCout])) continue;   // io cout
         ++program;
     }
 

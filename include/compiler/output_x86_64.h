@@ -50,3 +50,6 @@ void x86_64_CtrlSpr();
 void x86_64_CtrlRepb();
 
 void x86_64_CtrlRepe();
+
+// c-io
+void x86_64_IoCout();
