@@ -174,6 +174,14 @@ void x86_64_IoCout(){
     printf("    mov rax, 1\n");
     printf("    mov rdi, 1\n");
     printf("    mov rsi, rsp\n");
-    printf("    mov rdx, 4\n");
+    printf("    mov rdx, 1\n");
+    printf("    syscall\n");
+}
+
+void x86_64_IoCin(){
+    printf("    mov rax, 0\n");
+    printf("    mov rdi, 0\n");
+    printf("    mov rsi, rsp\n");
+    printf("    mov rdx, 1\n");
     printf("    syscall\n");
 }

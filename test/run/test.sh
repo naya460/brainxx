@@ -20,7 +20,7 @@ expect() {
     $bxx $input > tmp.s
     $assembler tmp.s -o tmp.elf
 
-    ./tmp.elf >> /dev/null
+    echo "$4" | ./tmp.elf >> /dev/null
     ret_num=$?
 
     if [ $ret_num -eq $expect ]; then
@@ -30,12 +30,12 @@ expect() {
         exit 1
     fi
 
-    if [ -z $3 ]; then
+    if [ -z "$3" ]; then
         return 0
     fi
 
-    out_text="$(./tmp.elf | tr -d '\0')"
-    if [ $3 = $out_text ]; then
+    out_text="$(echo "$4" | ./tmp.elf | tr -d '\0')"
+    if [ "$3" = "$out_text" ]; then
         echo $input ":" "output text" "=" $out_text : ok
     else
         echo $input ":" "output text" "=" $out_text : false
@@ -167,3 +167,4 @@ expect 005-rep-if.xx 15
 # tests - 004-io
 set_sd 004-io
 expect 001-cout.xx 0 "OK"
+expect 002-cin.xx 0 "Hello World!" "Hello World!"

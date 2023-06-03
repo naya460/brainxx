@@ -36,6 +36,7 @@ enum OutputFunctions {
     CtrlRepb,
     CtrlRepe,
     IoCout,
+    IoCin,
     // end of assembly
     EndAssembly
 };

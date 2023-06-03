@@ -31,6 +31,7 @@ void Compile(char *program_text){
         if (ConsumeE(&program, ']', Output[CtrlRepe])) continue; // ctrl repe
         // About IO
         if (ConsumeE(&program, '.', Output[IoCout])) continue;   // io cout
+        if (ConsumeE(&program, ',', Output[IoCin])) continue;    // io cin
         ++program;
     }
 

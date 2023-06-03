@@ -53,3 +53,5 @@ void x86_64_CtrlRepe();
 
 // c-io
 void x86_64_IoCout();
+
+void x86_64_IoCin();

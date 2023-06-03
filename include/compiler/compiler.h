@@ -32,3 +32,4 @@ void Compile(char *program);
 // | ]        (ctrl repe)
 // About IO
 // | .        (io cout)
+// | ,        (io cin)
