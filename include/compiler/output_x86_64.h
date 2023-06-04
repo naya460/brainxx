@@ -8,6 +8,8 @@ void x86_64_EndAssembly();
 // c-stack
 void x86_64_StackPush(long num);
 
+void x86_64_StackDup();
+
 void x86_64_StackAdd();
 
 void x86_64_StackSub();

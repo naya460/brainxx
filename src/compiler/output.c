@@ -21,6 +21,7 @@ void CompileTo_x86_64(){
     Output[EndAssembly]   = x86_64_EndAssembly;
     // c-stack
     OutputStackPush       = x86_64_StackPush;
+    Output[StackDup]      = x86_64_StackDup;
     Output[StackAdd]      = x86_64_StackAdd;
     Output[StackSub]      = x86_64_StackSub;
     Output[StackMul]      = x86_64_StackMul;

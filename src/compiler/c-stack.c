@@ -17,9 +17,10 @@ void CompileAboutStack(char **program_ptr){
     if ('0' <= *program && *program <= '9') {
         long num = strtol(program, &program, 10);
         OutputStackPush(num);
+        return;
     }
-    *program_ptr = program;
     // Operation
+    if (ConsumeE(program_ptr, '$', Output[StackDup])) return; // stack dup
     if (ConsumeE(program_ptr, '+', Output[StackAdd])) return; // stack add
     if (ConsumeE(program_ptr, '-', Output[StackSub])) return; // stack sub
     if (ConsumeE(program_ptr, '*', Output[StackMul])) return; // stack mul

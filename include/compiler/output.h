@@ -14,6 +14,7 @@ enum OutputFunctions {
     // start of assembly
     StartAssembly = 0,
     // c-stack
+    StackDup,
     StackAdd,
     StackSub,
     StackMul,

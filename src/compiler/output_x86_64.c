@@ -23,6 +23,10 @@ void x86_64_StackPush(long num){
     printf("    push %d\n", num);
 }
 
+void x86_64_StackDup(){
+    printf("    push [rsp]\n");
+}
+
 void x86_64_StackAdd(){
     printf("    pop rdi\n");
     printf("    pop rax\n");

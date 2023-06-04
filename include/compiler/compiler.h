@@ -6,6 +6,7 @@ void Compile(char *program);
 // --- Operation List ---
 // About Stack
 // | $__num__ (push __num__)
+// | $$       (stack dup)
 // | $+       (stack add)
 // | $-       (stack sub)
 // | $*       (stack mul)
