@@ -3,6 +3,7 @@
 #include "compiler/consume.h"
 #include "compiler/c-stack.h"
 #include "compiler/c-ctrl.h"
+#include "compiler/c-tag.h"
 #include "compiler/output.h"
 
 // declare variables
@@ -29,6 +30,8 @@ void Compile(char *program_text){
         if (ConsumeE(&program, '>', Output[CtrlSpr])) continue;  // ctrl spl
         if (ConsumeE(&program, '[', Output[CtrlRepb])) continue; // ctrl repb
         if (ConsumeE(&program, ']', Output[CtrlRepe])) continue; // ctrl repe
+        // About Tag
+        if (Consume(&program, ':', CompileAboutTag)) continue;
         // About IO
         if (ConsumeE(&program, '.', Output[IoCout])) continue;   // io cout
         if (ConsumeE(&program, ',', Output[IoCin])) continue;    // io cin

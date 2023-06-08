@@ -172,3 +172,7 @@ expect 005-rep-if.xx 15
 set_sd 004-io
 expect 001-cout.xx 0 "OK"
 expect 002-cin.xx 0 "Hello World!" "Hello World!"
+
+#tests - 005-tag
+set_sd 005-tag
+expect 001-def-jmp.xx 0

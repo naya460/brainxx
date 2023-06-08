@@ -174,6 +174,14 @@ void x86_64_CtrlRepe(){
     printf(".Lend%d:\n", dep);
 }
 
+void x86_64_TagDef(long num){
+    printf(".Ltag%ld:\n", num);
+}
+
+void x86_64_TagJmp(long num){
+    printf("    jmp .Ltag%d\n", num);
+}
+
 void x86_64_IoCout(){
     printf("    mov rax, 1\n");
     printf("    mov rdi, 1\n");

@@ -53,6 +53,11 @@ void x86_64_CtrlRepb();
 
 void x86_64_CtrlRepe();
 
+// c-tag
+void x86_64_TagDef(long num);
+
+void x86_64_TagJmp(long num);
+
 // c-io
 void x86_64_IoCout();
 
