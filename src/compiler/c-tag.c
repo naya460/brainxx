@@ -16,6 +16,7 @@ void CompileAboutTagJmp(char **program_ptr);
 void CompileAboutTag(char **program_ptr){
     if (Consume(program_ptr, ':', CompileAboutTagDef)) return;
     if (Consume(program_ptr, '>', CompileAboutTagJmp)) return;
+    if (ConsumeE(program_ptr, '#', Output[TagAsfn])) return;
     exit(1);
 }
 

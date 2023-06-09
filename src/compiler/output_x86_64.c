@@ -10,11 +10,13 @@ void x86_64_StartAssembly(){
     printf(".intel_syntax noprefix\n");
     printf(".globl main\n");
     printf("main:\n");
+    printf("    push rbp\n");
     printf("    mov rbp, rsp\n");
 }
 
 void x86_64_EndAssembly(){
     printf("    mov rsp, rbp\n");
+    printf("    pop rbp\n");
     printf("    mov rax, 0\n");
     printf("    ret\n");
 }
@@ -148,7 +150,13 @@ void x86_64_MovCptr(){
 void x86_64_CtrlRet(){
     printf("    pop rax\n");
     printf("    mov rsp, rbp\n");
+    printf("    pop rbp\n");
     printf("    ret\n");
+}
+
+void x86_64_CtrlCall(long num){
+    printf("    call .Ltag%d\n", num);
+    printf("    push rax\n");
 }
 
 void x86_64_CtrlSpl(){
@@ -180,6 +188,11 @@ void x86_64_TagDef(long num){
 
 void x86_64_TagJmp(long num){
     printf("    jmp .Ltag%d\n", num);
+}
+
+void x86_64_TagAsfn(){
+    printf("    push rbp\n");
+    printf("    mov rbp, rsp\n");
 }
 
 void x86_64_IoCout(){

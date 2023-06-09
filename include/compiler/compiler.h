@@ -27,6 +27,7 @@ void Compile(char *program);
 // | | $:<     (mov cptr)
 // About Ctrl
 // | #<        (ctrl ret)
+// | #>__num__ (ctrl call)
 // | <         (ctrl spl)
 // | >         (ctrl spr)
 // | [         (ctrl repb)
@@ -34,6 +35,7 @@ void Compile(char *program);
 // About Tag
 // | ::__num__ (tag def)
 // | :>__num__ (tag jmp)
+// | :#        (tag asfn)
 // About IO
 // | .         (io cout)
 // | ,         (io cin)

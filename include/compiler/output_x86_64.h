@@ -45,6 +45,8 @@ void x86_64_MovCptr();
 // c-ctrl
 void x86_64_CtrlRet();
 
+void x86_64_CtrlCall();
+
 void x86_64_CtrlSpl();
 
 void x86_64_CtrlSpr();
@@ -57,6 +59,8 @@ void x86_64_CtrlRepe();
 void x86_64_TagDef(long num);
 
 void x86_64_TagJmp(long num);
+
+void x86_64_TagAsfn();
 
 // c-io
 void x86_64_IoCout();

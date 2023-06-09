@@ -39,12 +39,14 @@ void CompileTo_x86_64(){
     Output[PushBptr]      = x86_64_PushBptr;
     Output[MovCptr]       = x86_64_MovCptr;
     Output[CtrlRet]       = x86_64_CtrlRet;
+    OutputCtrlCall        = x86_64_CtrlCall;
     Output[CtrlSpl]       = x86_64_CtrlSpl;
     Output[CtrlSpr]       = x86_64_CtrlSpr;
     Output[CtrlRepb]      = x86_64_CtrlRepb;
     Output[CtrlRepe]      = x86_64_CtrlRepe;
     OutputTagDef          = x86_64_TagDef;
-    OutputTagJmp        = x86_64_TagJmp;
+    OutputTagJmp          = x86_64_TagJmp;
+    Output[TagAsfn]       = x86_64_TagAsfn;
     Output[IoCout]        = x86_64_IoCout;
     Output[IoCin]         = x86_64_IoCin;
 }
@@ -53,6 +55,9 @@ void (*Output[EndAssembly + 1])(void) = { NULL };
 
 // c-stack
 void (*OutputStackPush)(long num) = NULL;
+
+// c-ctrl
+void (*OutputCtrlCall)(long num) = NULL;
 
 // c-tag
 void (*OutputTagDef)(long num) = NULL;

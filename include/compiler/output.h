@@ -36,7 +36,7 @@ enum OutputFunctions {
     CtrlSpr,
     CtrlRepb,
     CtrlRepe,
-    TagJmp,
+    TagAsfn,
     IoCout,
     IoCin,
     // end of assembly
@@ -49,6 +49,9 @@ void CompileTo(ARCH architecture);
 
 // c-stack
 extern void (*OutputStackPush)(long num);
+
+// c-ctrl
+extern void (*OutputCtrlCall)(long num);
 
 // c-tag
 extern void (*OutputTagDef)(long num);
