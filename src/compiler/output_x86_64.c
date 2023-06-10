@@ -206,7 +206,7 @@ void x86_64_Output(Operation operation){
 
 // c-stack
 void x86_64_StackPush(long num){
-    printf("    push %ld\n", num);
+    printf("    push %d\n", num);
 }
 
 // c-ctrl

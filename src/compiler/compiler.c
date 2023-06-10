@@ -1,9 +1,9 @@
 #include "compiler/compiler.h"
 
+#include <stdlib.h>
+
 #include "compiler/consume.h"
-#include "compiler/c-stack.h"
-#include "compiler/c-ctrl.h"
-#include "compiler/c-tag.h"
+#include "compiler/read_num.h"
 #include "compiler/output.h"
 
 // declare variables
@@ -21,20 +21,65 @@ void Compile(char *program_text){
     // Interpret every char in the program
     while(*program != '\0') {
         // About Stack
-        if (Consume(&program, '$', CompileAboutStack)) continue;
+        if (Consume(&program, '$')) {
+            if (ReadNum(&program, OutputStackPush)) continue; // push __num__
+            if (ConsumeE(&program, '$', StackDup)) continue;  // stack dup
+            if (ConsumeE(&program, '+', StackAdd)) continue;  // stack add
+            if (ConsumeE(&program, '-', StackSub)) continue;  // stack sub
+            if (ConsumeE(&program, '*', StackMul)) continue;  // stack mul
+            if (ConsumeE(&program, '/', StackDiv)) continue;  // stack div
+            if (ConsumeE(&program, '%', StackMod)) continue;  // stack mod
+            if (ConsumeE(&program, '<', StackCl)) continue;   // stack cl
+            if (ConsumeE(&program, '>', StackCg)) continue;   // stack cg
+            // About Stack Equal
+            if (Consume(&program, '=')) {                    
+                if (ConsumeE(&program, '=', StackEq)) continue; // stack eq
+                if (ConsumeE(&program, '<', StackEl)) continue; // stack el
+                if (ConsumeE(&program, '>', StackEg)) continue; // stack eg
+                if (ConsumeE(&program, '!', StackNe)) continue; // stack ne
+                exit(1); // if not found, err and exit
+            }
+            // About Stack Ptr
+            if (Consume(&program, ':')) {
+                if (ConsumeE(&program, '^', PushCptr)) continue; // push cptr
+                if (ConsumeE(&program, '~', PushBptr)) continue; // push bptr
+                if (ConsumeE(&program, '<', MovCptr)) continue;  // mov  cptr
+                exit(1); // if not found, err and exit
+            }
+            exit(1); // if not found, err and exit
+        }
         if (ConsumeE(&program, '+', StackInc)) continue;
         if (ConsumeE(&program, '-', StackDec)) continue;
         // About Ctrl
-        if (Consume(&program, '#', CompileAboutCtrl)) continue;
+        if (Consume(&program, '#')) {
+            if (ConsumeE(&program, '<', CtrlRet)) continue;  // ctrl ret
+            if (Consume(&program, '>')) {
+                if (ReadNum(&program, OutputCtrlCall)) continue; // ctrl call
+                exit(1); // if not found, err and exit
+            }
+            exit(1); // if not found, err and exit
+        }
         if (ConsumeE(&program, '<', CtrlSpl)) continue;  // ctrl spl
         if (ConsumeE(&program, '>', CtrlSpr)) continue;  // ctrl spl
         if (ConsumeE(&program, '[', CtrlRepb)) continue; // ctrl repb
         if (ConsumeE(&program, ']', CtrlRepe)) continue; // ctrl repe
         // About Tag
-        if (Consume(&program, ':', CompileAboutTag)) continue;
+        if (Consume(&program, ':')) {
+            if (Consume(&program, ':')) {
+                if (ReadNum(&program, OutputTagDef)) continue;
+                exit(1); // if not found, err and exit
+            }
+            if (Consume(&program, '>')) {
+                if (ReadNum(&program, OutputTagJmp)) continue;
+                exit(1); // if not found, err and exit
+            }
+            if (ConsumeE(&program, '#', TagAsfn)) continue;
+            exit(1); // if not found, err and exit
+        }
         // About IO
         if (ConsumeE(&program, '.', IoCout)) continue;   // io cout
         if (ConsumeE(&program, ',', IoCin)) continue;    // io cin
+        // if other character
         ++program;
     }
 

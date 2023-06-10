@@ -6,5 +6,5 @@ add_library(output STATIC output.c)
 target_link_libraries(output bxx_x86_64)
 
 # lib : compiler
-add_library(compiler STATIC compiler.c consume.c c-stack.c c-ctrl.c c-tag.c read_num.c)
+add_library(compiler STATIC compiler.c consume.c read_num.c)
 target_link_libraries(compiler output)
