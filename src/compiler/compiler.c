@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 #include "compiler/consume.h"
-#include "compiler/read_num.h"
 #include "compiler/output.h"
 
 // declare variables

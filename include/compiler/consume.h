@@ -18,3 +18,7 @@ bool Consume(char **program_ptr, char expect);
 // 4. Call output function with operation
 // 5. Return true
 bool ConsumeE(char **program_ptr, char expect, Operation operation);
+
+// Try to read number
+// If it was successful, run the function
+bool ReadNum(char **program_ptr, void function(int num));
