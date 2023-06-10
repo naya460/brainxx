@@ -7,9 +7,9 @@ bool Consume(char **program_ptr, char expect, void function(char **program)){
     return true;
 }
 
-bool ConsumeE(char **program_ptr, char expect, void function(void)){
+bool ConsumeE(char **program_ptr, char expect, Operation operation){
     if (**program_ptr != expect) return false;
     ++(*program_ptr);
-    function();
+    Output(operation);
     return true;
 }

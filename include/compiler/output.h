@@ -8,9 +8,9 @@ enum ARCH {
     arch_x86_64,
 };
 
-// Output Functions
-typedef enum OutputFunctions OFs;
-enum OutputFunctions {
+// Operations
+typedef enum Operation Operation;
+enum Operation {
     // start of assembly
     StartAssembly = 0,
     // c-stack
@@ -31,18 +31,21 @@ enum OutputFunctions {
     PushCptr,
     PushBptr,
     MovCptr,
+    // c-ctrl
     CtrlRet,
     CtrlSpl,
     CtrlSpr,
     CtrlRepb,
     CtrlRepe,
+    // c-tag
     TagAsfn,
+    // c-io
     IoCout,
     IoCin,
     // end of assembly
     EndAssembly
 };
-extern void (*Output[EndAssembly + 1])(void);
+extern void (*Output)(Operation operation);
 
 // set up
 void CompileTo(ARCH architecture);

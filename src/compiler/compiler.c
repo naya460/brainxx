@@ -16,27 +16,27 @@ void Compile(char *program_text){
 
     CompileTo(arch_x86_64);
 
-    Output[StartAssembly]();
+    Output(StartAssembly);
 
     // Interpret every char in the program
     while(*program != '\0') {
         // About Stack
         if (Consume(&program, '$', CompileAboutStack)) continue;
-        if (ConsumeE(&program, '+', Output[StackInc])) continue;
-        if (ConsumeE(&program, '-', Output[StackDec])) continue;
+        if (ConsumeE(&program, '+', StackInc)) continue;
+        if (ConsumeE(&program, '-', StackDec)) continue;
         // About Ctrl
         if (Consume(&program, '#', CompileAboutCtrl)) continue;
-        if (ConsumeE(&program, '<', Output[CtrlSpl])) continue;  // ctrl spl
-        if (ConsumeE(&program, '>', Output[CtrlSpr])) continue;  // ctrl spl
-        if (ConsumeE(&program, '[', Output[CtrlRepb])) continue; // ctrl repb
-        if (ConsumeE(&program, ']', Output[CtrlRepe])) continue; // ctrl repe
+        if (ConsumeE(&program, '<', CtrlSpl)) continue;  // ctrl spl
+        if (ConsumeE(&program, '>', CtrlSpr)) continue;  // ctrl spl
+        if (ConsumeE(&program, '[', CtrlRepb)) continue; // ctrl repb
+        if (ConsumeE(&program, ']', CtrlRepe)) continue; // ctrl repe
         // About Tag
         if (Consume(&program, ':', CompileAboutTag)) continue;
         // About IO
-        if (ConsumeE(&program, '.', Output[IoCout])) continue;   // io cout
-        if (ConsumeE(&program, ',', Output[IoCin])) continue;    // io cin
+        if (ConsumeE(&program, '.', IoCout)) continue;   // io cout
+        if (ConsumeE(&program, ',', IoCin)) continue;    // io cin
         ++program;
     }
 
-    Output[EndAssembly]();
+    Output(EndAssembly);
 }

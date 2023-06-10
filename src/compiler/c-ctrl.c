@@ -13,7 +13,7 @@ void CompileAboutCtrlCall(char **program_ptr){
 
 void CompileAboutCtrl(char **program_ptr){
     // Operation
-    if (ConsumeE(program_ptr, '<', Output[CtrlRet])) return;  // ctrl ret
+    if (ConsumeE(program_ptr, '<', CtrlRet)) return;  // ctrl ret
     if (Consume(program_ptr, '>', CompileAboutCtrlCall)) return;
     exit(1);
 }
