@@ -51,12 +51,12 @@ extern void (*Output)(Operation operation);
 void CompileTo(ARCH architecture);
 
 // c-stack
-extern void (*OutputStackPush)(long num);
+extern void (*OutputStackPush)(int num);
 
 // c-ctrl
-extern void (*OutputCtrlCall)(long num);
+extern void (*OutputCtrlCall)(int num);
 
 // c-tag
-extern void (*OutputTagDef)(long num);
+extern void (*OutputTagDef)(int num);
 
-extern void (*OutputTagJmp)(long num);
+extern void (*OutputTagJmp)(int num);
