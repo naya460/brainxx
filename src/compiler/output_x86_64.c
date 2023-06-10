@@ -174,9 +174,9 @@ void x86_64_Output(Operation operation){
         break;
     
     case CtrlRepe:
-        int dep = rep_c_ed[--rep_depth];
-        printf("    jmp .Lbegin%d\n", dep);
-        printf(".Lend%d:\n", dep);
+        --rep_depth;
+        printf("    jmp .Lbegin%d\n", rep_c_ed[rep_depth]);
+        printf(".Lend%d:\n", rep_c_ed[rep_depth]);
         break;
     
     // c-tag
