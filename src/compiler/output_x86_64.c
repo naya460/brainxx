@@ -2,9 +2,9 @@
 
 #include <stdio.h>
 
-static int rep_depth = 0;
-static int rep_c = 0;
-static int rep_c_ed[100] = {0};
+static long rep_depth = 0;
+static long rep_c = 0;
+static long rep_c_ed[100] = {0};
 
 void x86_64_Output(Operation operation){
     switch (operation) {
@@ -165,18 +165,18 @@ void x86_64_Output(Operation operation){
         break;
     
     case CtrlRepb:
-        printf(".Lbegin%d:\n", rep_c);
+        printf(".Lbegin%ld:\n", rep_c);
         printf("    pop rax\n");
         printf("    push rax\n");
         printf("    cmp rax, 0\n");
-        printf("    je .Lend%d\n", rep_c);
+        printf("    je .Lend%ld\n", rep_c);
         rep_c_ed[rep_depth++] = rep_c++;
         break;
     
     case CtrlRepe:
         --rep_depth;
-        printf("    jmp .Lbegin%d\n", rep_c_ed[rep_depth]);
-        printf(".Lend%d:\n", rep_c_ed[rep_depth]);
+        printf("    jmp .Lbegin%ld\n", rep_c_ed[rep_depth]);
+        printf(".Lend%ld:\n", rep_c_ed[rep_depth]);
         break;
     
     // c-tag
@@ -206,12 +206,12 @@ void x86_64_Output(Operation operation){
 
 // c-stack
 void x86_64_StackPush(long num){
-    printf("    push %d\n", num);
+    printf("    push %ld\n", num);
 }
 
 // c-ctrl
 void x86_64_CtrlCall(long num){
-    printf("    call .Ltag%d\n", num);
+    printf("    call .Ltag%ld\n", num);
     printf("    push rax\n");
 }
 
@@ -221,5 +221,5 @@ void x86_64_TagDef(long num){
 }
 
 void x86_64_TagJmp(long num){
-    printf("    jmp .Ltag%d\n", num);
+    printf("    jmp .Ltag%ld\n", num);
 }
