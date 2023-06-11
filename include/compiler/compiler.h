@@ -5,6 +5,8 @@ void Compile(char *program);
 
 // --- Operation List ---
 // About Stack
+// | +         (stack inc)
+// | -         (stack dec)
 // | $__num__  (push __num__)
 // | $$        (stack dup)
 // | $+        (stack add)
@@ -14,8 +16,6 @@ void Compile(char *program);
 // | $%        (stack mod)
 // | $<        (stack cl)
 // | $>        (stack cg)
-// | +         (stack inc)
-// | -         (stack dec)
 // | About Stack Equal
 // | | $==     (stack eq)
 // | | $=<     (stack el)
@@ -25,17 +25,18 @@ void Compile(char *program);
 // | | $:^     (push cptr)
 // | | $:~     (push bptr)
 // | | $:<     (mov cptr)
+// About Tag
+// | ::__num__ (tag def)
+// | :>__num__ (tag jmp)
+// About Fn
+// | #:__num__ (fn def)
+// | #>__num__ (fn call)
+// | #<        (fn ret)
 // About Ctrl
-// | #<        (ctrl ret)
-// | #>__num__ (ctrl call)
 // | <         (ctrl spl)
 // | >         (ctrl spr)
 // | [         (ctrl repb)
 // | ]         (ctrl repe)
-// About Tag
-// | ::__num__ (tag def)
-// | :>__num__ (tag jmp)
-// | :#__num__ (fn def)
 // About IO
 // | .         (io cout)
 // | ,         (io cin)

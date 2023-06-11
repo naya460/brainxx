@@ -20,6 +20,8 @@ void Compile(char *program_text){
     // Interpret every char in the program
     while(*program != '\0') {
         // About Stack
+        if (ConsumeE(&program, '+', StackInc)) continue;
+        if (ConsumeE(&program, '-', StackDec)) continue;
         if (Consume(&program, '$')) {
             if (ReadNum(&program, OutputStackPush)) continue; // push __num__
             if (ConsumeE(&program, '$', StackDup)) continue;  // stack dup
@@ -47,17 +49,7 @@ void Compile(char *program_text){
             }
             exit(1); // if not found, err and exit
         }
-        if (ConsumeE(&program, '+', StackInc)) continue;
-        if (ConsumeE(&program, '-', StackDec)) continue;
         // About Ctrl
-        if (Consume(&program, '#')) {
-            if (ConsumeE(&program, '<', CtrlRet)) continue;  // ctrl ret
-            if (Consume(&program, '>')) {
-                if (ReadNum(&program, OutputCtrlCall)) continue; // ctrl call
-                exit(1); // if not found, err and exit
-            }
-            exit(1); // if not found, err and exit
-        }
         if (ConsumeE(&program, '<', CtrlSpl)) continue;  // ctrl spl
         if (ConsumeE(&program, '>', CtrlSpr)) continue;  // ctrl spl
         if (ConsumeE(&program, '[', CtrlRepb)) continue; // ctrl repb
@@ -65,17 +57,27 @@ void Compile(char *program_text){
         // About Tag
         if (Consume(&program, ':')) {
             if (Consume(&program, ':')) {
-                if (ReadNum(&program, OutputTagDef)) continue;
+                if (ReadNum(&program, OutputTagDef)) continue; // tag def
                 exit(1); // if not found, err and exit
             }
             if (Consume(&program, '>')) {
-                if (ReadNum(&program, OutputTagJmp)) continue;
+                if (ReadNum(&program, OutputTagJmp)) continue; // tag jmp
                 exit(1); // if not found, err and exit
             }
-            if (Consume(&program, '#')) {
-                if (ReadNum(&program, OutputFnDef)) continue;
+
+            exit(1); // if not found, err and exit
+        }
+        // About Fn
+        if (Consume(&program, '#')) {
+            if (Consume(&program, ':')) {
+                if (ReadNum(&program, OutputFnDef)) continue;  // fn def
                 exit(1); // if not found, err and exit
             }
+            if (Consume(&program, '>')) {
+                if (ReadNum(&program, OutputFnCall)) continue; // fn call
+                exit(1); // if not found, err and exit
+            }
+            if (ConsumeE(&program, '<', FnRet)) continue;      // fn ret
             exit(1); // if not found, err and exit
         }
         // About IO

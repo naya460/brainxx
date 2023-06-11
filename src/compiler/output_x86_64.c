@@ -26,6 +26,18 @@ void x86_64_Output(Operation operation){
         break;
     
     // c-stack
+    case StackInc:
+        printf("    pop rax\n");
+        printf("    add rax, 1\n");
+        printf("    push rax\n");
+        break;
+    
+    case StackDec:
+        printf("    pop rax\n");
+        printf("    sub rax, 1\n");
+        printf("    push rax\n");
+        break;
+    
     case StackDup:
         printf("    push [rsp]\n");
         break;
@@ -85,18 +97,6 @@ void x86_64_Output(Operation operation){
         printf("    push rax\n");
         break;
     
-    case StackInc:
-        printf("    pop rax\n");
-        printf("    add rax, 1\n");
-        printf("    push rax\n");
-        break;
-    
-    case StackDec:
-        printf("    pop rax\n");
-        printf("    sub rax, 1\n");
-        printf("    push rax\n");
-        break;
-    
     case StackEq:
         printf("    pop rdi\n");
         printf("    pop rax\n");
@@ -149,13 +149,6 @@ void x86_64_Output(Operation operation){
         break;
     
     // c-ctrl
-    case CtrlRet:
-        printf("    pop rax\n");
-        printf("    mov rsp, rbp\n");
-        printf("    pop rbp\n");
-        printf("    ret\n");
-        break;
-    
     case CtrlSpl:
         printf("    add rsp, 8\n");
         break;
@@ -177,6 +170,14 @@ void x86_64_Output(Operation operation){
         --rep_depth;
         printf("    jmp .Lbegin%d\n", rep_c_ed[rep_depth]);
         printf(".Lend%d:\n", rep_c_ed[rep_depth]);
+        break;
+
+    // c-fn
+    case FnRet:
+        printf("    pop rax\n");
+        printf("    mov rsp, rbp\n");
+        printf("    pop rbp\n");
+        printf("    ret\n");
         break;
     
     // c-io
@@ -203,12 +204,6 @@ void x86_64_StackPush(int num){
     printf("    push %d\n", num);
 }
 
-// c-ctrl
-void x86_64_CtrlCall(int num){
-    printf("    call .Lfn%d\n", num);
-    printf("    push rax\n");
-}
-
 // c-tag
 void x86_64_TagDef(int num){
     printf(".Ltag%d:\n", num);
@@ -218,8 +213,14 @@ void x86_64_TagJmp(int num){
     printf("    jmp .Ltag%d\n", num);
 }
 
+// c-fn
 void x86_64_FnDef(int num){
     printf(".Lfn%d:\n", num);
     printf("    push rbp\n");
     printf("    mov rbp, rsp\n");
+}
+
+void x86_64_FnCall(int num){
+    printf("    call .Lfn%d\n", num);
+    printf("    push rax\n");
 }

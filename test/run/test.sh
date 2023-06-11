@@ -168,12 +168,6 @@ expect 003-if-else.xx 12
 expect 004-rep.xx 32
 expect 005-rep-if.xx 15
 
-# tests - 003-ctrl - 004-call
-set_sd 003-ctrl/004-call
-expect 001-call-single.xx 0 "OK"
-expect 002-call-number.xx 15
-expect 003-call-double.xx 20
-
 # tests - 004-io
 set_sd 004-io
 expect 001-cout.xx 0 "OK"
@@ -182,3 +176,9 @@ expect 002-cin.xx 0 "Hello World!" "Hello World!"
 #tests - 005-tag
 set_sd 005-tag
 expect 001-def-jmp.xx 0
+
+# tests - 006-fn
+set_sd 006-fn
+expect 001-call-single.xx 0 "OK"
+expect 002-call-number.xx 15
+expect 003-call-double.xx 20

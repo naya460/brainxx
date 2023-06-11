@@ -14,6 +14,8 @@ enum Operation {
     // start of assembly
     StartAssembly = 0,
     // c-stack
+    StackInc,
+    StackDec,
     StackDup,
     StackAdd,
     StackSub,
@@ -22,8 +24,6 @@ enum Operation {
     StackMod,
     StackCl,
     StackCg,
-    StackInc,
-    StackDec,
     StackEq,
     StackEl,
     StackEg,
@@ -31,8 +31,9 @@ enum Operation {
     PushCptr,
     PushBptr,
     MovCptr,
+    // c-fn
+    FnRet,
     // c-ctrl
-    CtrlRet,
     CtrlSpl,
     CtrlSpr,
     CtrlRepb,
@@ -51,12 +52,12 @@ void CompileTo(ARCH architecture);
 // c-stack
 extern void (*OutputStackPush)(int num);
 
-// c-ctrl
-extern void (*OutputCtrlCall)(int num);
-
 // c-tag
 extern void (*OutputTagDef)(int num);
 
 extern void (*OutputTagJmp)(int num);
 
+// c-fn
 extern void (*OutputFnDef)(int num);
+
+extern void (*OutputFnCall)(int num);
