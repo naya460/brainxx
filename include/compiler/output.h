@@ -37,8 +37,6 @@ enum Operation {
     CtrlSpr,
     CtrlRepb,
     CtrlRepe,
-    // c-tag
-    TagAsfn,
     // c-io
     IoCout,
     IoCin,
@@ -60,3 +58,5 @@ extern void (*OutputCtrlCall)(int num);
 extern void (*OutputTagDef)(int num);
 
 extern void (*OutputTagJmp)(int num);
+
+extern void (*OutputFnDef)(int num);

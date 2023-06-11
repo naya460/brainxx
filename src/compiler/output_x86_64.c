@@ -179,12 +179,6 @@ void x86_64_Output(Operation operation){
         printf(".Lend%d:\n", rep_c_ed[rep_depth]);
         break;
     
-    // c-tag
-    case TagAsfn:
-        printf("    push rbp\n");
-        printf("    mov rbp, rsp\n");
-        break;
-    
     // c-io
     case IoCout:
         printf("    mov rax, 1\n");
@@ -211,7 +205,7 @@ void x86_64_StackPush(int num){
 
 // c-ctrl
 void x86_64_CtrlCall(int num){
-    printf("    call .Ltag%d\n", num);
+    printf("    call .Lfn%d\n", num);
     printf("    push rax\n");
 }
 
@@ -222,4 +216,10 @@ void x86_64_TagDef(int num){
 
 void x86_64_TagJmp(int num){
     printf("    jmp .Ltag%d\n", num);
+}
+
+void x86_64_FnDef(int num){
+    printf(".Lfn%d:\n", num);
+    printf("    push rbp\n");
+    printf("    mov rbp, rsp\n");
 }

@@ -35,7 +35,7 @@ void Compile(char *program);
 // About Tag
 // | ::__num__ (tag def)
 // | :>__num__ (tag jmp)
-// | :#        (tag asfn)
+// | :#__num__ (fn def)
 // About IO
 // | .         (io cout)
 // | ,         (io cin)

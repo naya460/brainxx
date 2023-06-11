@@ -25,6 +25,7 @@ void CompileTo_x86_64(){
     // c-tag
     OutputTagDef     = x86_64_TagDef;
     OutputTagJmp     = x86_64_TagJmp;
+    OutputFnDef      = x86_64_FnDef;
 }
 
 void (*Output)(Operation operation) = NULL;
@@ -39,3 +40,5 @@ void (*OutputCtrlCall)(int num) = NULL;
 void (*OutputTagDef)(int num) = NULL;
 
 void (*OutputTagJmp)(int num) = NULL;
+
+void (*OutputFnDef)(int num) = NULL;

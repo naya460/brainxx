@@ -72,7 +72,10 @@ void Compile(char *program_text){
                 if (ReadNum(&program, OutputTagJmp)) continue;
                 exit(1); // if not found, err and exit
             }
-            if (ConsumeE(&program, '#', TagAsfn)) continue;
+            if (Consume(&program, '#')) {
+                if (ReadNum(&program, OutputFnDef)) continue;
+                exit(1); // if not found, err and exit
+            }
             exit(1); // if not found, err and exit
         }
         // About IO

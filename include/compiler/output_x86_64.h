@@ -15,3 +15,5 @@ void x86_64_CtrlCall(int num);
 void x86_64_TagDef(int num);
 
 void x86_64_TagJmp(int num);
+
+void x86_64_FnDef(int num);
