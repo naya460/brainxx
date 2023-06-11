@@ -8,12 +8,12 @@ void Compile(char *program);
 // | +         (stack inc)
 // | -         (stack dec)
 // | $__num__  (push __num__)
-// | $$        (stack dup)
 // | $+        (stack add)
 // | $-        (stack sub)
 // | $*        (stack mul)
 // | $/        (stack div)
 // | $%        (stack mod)
+// | $$        (stack dup)
 // | $<        (stack cl)
 // | $>        (stack cg)
 // | About Stack Equal
