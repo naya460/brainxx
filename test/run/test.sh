@@ -46,7 +46,7 @@ expect() {
 # tests - 001-base
 set_sd 001-base
 expect 001-empty.xx 0
-expect 002-ret.xx 1
+expect 002-push-ret.xx 1
 
 # tests - 002-stack - 001-inc_dec
 set_sd 002-stack/001-inc_dec
