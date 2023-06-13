@@ -60,4 +60,4 @@ extern void (*OutputTagJmp)(int num);
 // c-fn
 extern void (*OutputFnDef)(int num);
 
-extern void (*OutputFnCall)(int num);
+extern void (*OutputFnCall)(int fid, int argc);

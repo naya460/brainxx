@@ -16,4 +16,4 @@ void x86_64_TagJmp(int num);
 // c-fn
 void x86_64_FnDef(int num);
 
-void x86_64_FnCall(int num);
+void x86_64_FnCall(int fid, int argc);

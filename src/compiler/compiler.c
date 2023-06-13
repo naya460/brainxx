@@ -73,9 +73,14 @@ void Compile(char *program_text){
                 if (ConsumeNum(&program, OutputFnDef)) continue;  // fn def
                 exit(1); // if not found, err and exit
             }
+            // fn call
             if (Consume(&program, '>')) {
-                if (ConsumeNum(&program, OutputFnCall)) continue; // fn call
-                exit(1); // if not found, err and exit
+                int fid = 0, argc = 0;
+                if (!ReadNum(&program, &fid)) exit(1);
+                if (!Consume(&program, ':')) exit(1);
+                if (!ReadNum(&program, &argc)) exit(1);
+                OutputFnCall(fid, argc);
+                continue;
             }
             if (ConsumeE(&program, '<', FnRet)) continue;      // fn ret
             exit(1); // if not found, err and exit

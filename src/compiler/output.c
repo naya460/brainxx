@@ -41,4 +41,4 @@ void (*OutputTagJmp)(int num) = NULL;
 // c-fn
 void (*OutputFnDef)(int num) = NULL;
 
-void (*OutputFnCall)(int num) = NULL;
+void (*OutputFnCall)(int fid, int argc) = NULL;

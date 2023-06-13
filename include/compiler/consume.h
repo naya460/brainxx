@@ -21,4 +21,10 @@ bool ConsumeE(char **program_ptr, char expect, Operation operation);
 
 // Try to read number
 // If it was successful, run the function
+// and move the program pointer to next of number
 bool ConsumeNum(char **program_ptr, void function(int num));
+
+// Try to read number
+// If it was successful, return the number with the pointer
+// and move the program pointer to next of number
+bool ReadNum(char **program_ptr, int *num);

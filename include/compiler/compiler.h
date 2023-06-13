@@ -30,7 +30,7 @@ void Compile(char *program);
 // | :>__num__ (tag jmp)
 // About Fn
 // | #:__num__ (fn def)
-// | #>__num__ (fn call)
+// | #>__num__:__num__ (fn call)
 // | #<        (fn ret)
 // About Ctrl
 // | <         (ctrl spl)

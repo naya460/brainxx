@@ -218,9 +218,21 @@ void x86_64_FnDef(int num){
     printf(".Lfn%d:\n", num);
     printf("    push rbp\n");
     printf("    mov rbp, rsp\n");
+    printf("    push rdi\n");
+    printf("    push rsi\n");
+    printf("    push rdx\n");
+    printf("    push rcx\n");
+    printf("    push r8\n");
+    printf("    push r9\n");
 }
 
-void x86_64_FnCall(int num){
-    printf("    call .Lfn%d\n", num);
+void x86_64_FnCall(int fid, int argc){
+    if (argc >= 1) printf("    pop rdi\n");
+    if (argc >= 2) printf("    pop rsi\n");
+    if (argc >= 3) printf("    pop rdx\n");
+    if (argc >= 4) printf("    pop rcx\n");
+    if (argc >= 5) printf("    pop r8\n");
+    if (argc >= 6) printf("    pop r9\n");
+    printf("    call .Lfn%d\n", fid);
     printf("    push rax\n");
 }
