@@ -15,7 +15,7 @@ bool ConsumeE(char **program_ptr, char expect, Operation operation){
     return true;
 }
 
-bool ReadNum(char **program_ptr, void function(int num)){
+bool ConsumeNum(char **program_ptr, void function(int num)){
     char *program = *program_ptr;
     if ('0' <= *program && *program <= '9') {
         int num = strtol(program, &program, 10);

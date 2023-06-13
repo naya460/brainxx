@@ -23,7 +23,7 @@ void Compile(char *program_text){
         if (ConsumeE(&program, '+', StackInc)) continue;
         if (ConsumeE(&program, '-', StackDec)) continue;
         if (Consume(&program, '$')) {
-            if (ReadNum(&program, OutputStackPush)) continue; // push __num__
+            if (ConsumeNum(&program, OutputStackPush)) continue; // push __num__
             if (ConsumeE(&program, '$', StackDup)) continue;  // stack dup
             if (ConsumeE(&program, '+', StackAdd)) continue;  // stack add
             if (ConsumeE(&program, '-', StackSub)) continue;  // stack sub
@@ -57,11 +57,11 @@ void Compile(char *program_text){
         // About Tag
         if (Consume(&program, ':')) {
             if (Consume(&program, ':')) {
-                if (ReadNum(&program, OutputTagDef)) continue; // tag def
+                if (ConsumeNum(&program, OutputTagDef)) continue; // tag def
                 exit(1); // if not found, err and exit
             }
             if (Consume(&program, '>')) {
-                if (ReadNum(&program, OutputTagJmp)) continue; // tag jmp
+                if (ConsumeNum(&program, OutputTagJmp)) continue; // tag jmp
                 exit(1); // if not found, err and exit
             }
 
@@ -70,11 +70,11 @@ void Compile(char *program_text){
         // About Fn
         if (Consume(&program, '#')) {
             if (Consume(&program, ':')) {
-                if (ReadNum(&program, OutputFnDef)) continue;  // fn def
+                if (ConsumeNum(&program, OutputFnDef)) continue;  // fn def
                 exit(1); // if not found, err and exit
             }
             if (Consume(&program, '>')) {
-                if (ReadNum(&program, OutputFnCall)) continue; // fn call
+                if (ConsumeNum(&program, OutputFnCall)) continue; // fn call
                 exit(1); // if not found, err and exit
             }
             if (ConsumeE(&program, '<', FnRet)) continue;      // fn ret
