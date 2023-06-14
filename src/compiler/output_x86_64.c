@@ -15,6 +15,12 @@ void x86_64_Output(Operation operation){
         printf("main:\n");
         printf("    push rbp\n");
         printf("    mov rbp, rsp\n");
+        printf("    push r9\n");
+        printf("    push r8\n");
+        printf("    push rcx\n");
+        printf("    push rdx\n");
+        printf("    push rsi\n");
+        printf("    push rdi\n");
         break;
     
     // end of assembly
@@ -148,7 +154,7 @@ void x86_64_Output(Operation operation){
     
     case PushBptr:
         printf("    mov rax, rbp\n");
-        printf("    sub rax, 8\n");
+        printf("    sub rax, 48\n");
         printf("    push rax\n");
         break;
     
