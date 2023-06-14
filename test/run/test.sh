@@ -147,6 +147,9 @@ expect 003-equal.xx 0
 set_sd 002-stack/015-ptr
 expect 001-base-mov.xx 5
 expect 002-cur-mov.xx 48
+expect 003-ptr-get.xx 4
+expect 004-ptr-add.xx 5
+expect 005-ptr-sub.xx 13
 
 #tests - 003-tag
 set_sd 003-tag

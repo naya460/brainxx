@@ -31,6 +31,9 @@ enum Operation {
     PushCptr,
     PushBptr,
     MovCptr,
+    PtrAdd,
+    PtrSub,
+    PtrGet,
     // c-fn
     FnRet,
     // c-ctrl

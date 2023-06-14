@@ -45,6 +45,9 @@ void Compile(char *program_text){
                 if (ConsumeE(&program, '^', PushCptr)) continue; // push cptr
                 if (ConsumeE(&program, '~', PushBptr)) continue; // push bptr
                 if (ConsumeE(&program, '<', MovCptr)) continue;  // mov  cptr
+                if (ConsumeE(&program, '+', PtrAdd)) continue;   // ptr add
+                if (ConsumeE(&program, '-', PtrSub)) continue;   // ptr sub
+                if (ConsumeE(&program, '>', PtrGet)) continue;   // ptr get
                 exit(1); // if not found, err and exit
             }
             exit(1); // if not found, err and exit

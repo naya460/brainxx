@@ -25,6 +25,9 @@ void Compile(char *program);
 // | | $:^     (push cptr)
 // | | $:~     (push bptr)
 // | | $:<     (mov cptr)
+// | | $:+     (ptr add)
+// | | $:-     (ptr sub)
+// | | $:>     (ptr get)
 // About Tag
 // | ::__num__ (tag def)
 // | :>__num__ (tag jmp)

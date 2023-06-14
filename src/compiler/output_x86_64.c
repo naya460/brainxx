@@ -148,6 +148,27 @@ void x86_64_Output(Operation operation){
         printf("    mov rsp, rax\n");
         break;
     
+    case PtrAdd:
+        printf("    pop rdi\n");
+        printf("    pop rax\n");
+        printf("    imul rdi, 8\n");
+        printf("    sub rax, rdi\n");
+        printf("    push rax\n");
+        break;
+
+    case PtrSub:
+        printf("    pop rdi\n");
+        printf("    pop rax\n");
+        printf("    imul rdi, 8\n");
+        printf("    add rax, rdi\n");
+        printf("    push rax\n");
+        break;
+
+    case PtrGet:
+        printf("    pop rax\n");
+        printf("    push [rax]\n");
+        break;
+    
     // c-ctrl
     case CtrlSpl:
         printf("    add rsp, 8\n");
