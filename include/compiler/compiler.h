@@ -25,7 +25,6 @@ void Compile(char *program);
 // | About Stack Ptr
 // | | $:^     (push cptr)
 // | | $:~     (push bptr)
-// | | $:<     (mov cptr)
 // | | $:+     (ptr add)
 // | | $:-     (ptr sub)
 // | | $:>     (ptr get)
@@ -41,6 +40,7 @@ void Compile(char *program);
 // | >         (ctrl spr)
 // | [         (ctrl repb)
 // | ]         (ctrl repe)
+// | @         (mov cptr)
 // About IO
 // | .         (io cout)
 // | ,         (io cin)

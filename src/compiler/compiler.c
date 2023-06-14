@@ -45,7 +45,6 @@ void Compile(char *program_text){
             if (Consume(&program, ':')) {
                 if (ConsumeE(&program, '^', PushCptr)) continue; // push cptr
                 if (ConsumeE(&program, '~', PushBptr)) continue; // push bptr
-                if (ConsumeE(&program, '<', MovCptr)) continue;  // mov  cptr
                 if (ConsumeE(&program, '+', PtrAdd)) continue;   // ptr add
                 if (ConsumeE(&program, '-', PtrSub)) continue;   // ptr sub
                 if (ConsumeE(&program, '>', PtrGet)) continue;   // ptr get
@@ -58,6 +57,7 @@ void Compile(char *program_text){
         if (ConsumeE(&program, '>', CtrlSpr)) continue;  // ctrl spl
         if (ConsumeE(&program, '[', CtrlRepb)) continue; // ctrl repb
         if (ConsumeE(&program, ']', CtrlRepe)) continue; // ctrl repe
+        if (ConsumeE(&program, '@', MovCptr)) continue;  // mov  cptr
         // About Tag
         if (Consume(&program, ':')) {
             if (Consume(&program, ':')) {
