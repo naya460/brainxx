@@ -14,6 +14,7 @@ void Compile(char *program);
 // | $/        (stack div)
 // | $%        (stack mod)
 // | $$        (stack dup)
+// | $#        (push arg)
 // | $<        (stack cl)
 // | $>        (stack cg)
 // | About Stack Equal

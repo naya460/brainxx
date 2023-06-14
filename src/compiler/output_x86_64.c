@@ -38,10 +38,6 @@ void x86_64_Output(Operation operation){
         printf("    push rax\n");
         break;
     
-    case StackDup:
-        printf("    push [rsp]\n");
-        break;
-    
     case StackAdd:
         printf("    pop rdi\n");
         printf("    pop rax\n");
@@ -77,6 +73,19 @@ void x86_64_Output(Operation operation){
         printf("    cqo\n");
         printf("    idiv rdi\n");
         printf("    push rdx\n");
+        break;
+    
+    case StackDup:
+        printf("    push [rsp]\n");
+        break;
+
+    case PushArg:
+        printf("    pop rdi\n");
+        printf("    imul rdi, 8\n");
+        printf("    mov rax, rbp\n");
+        printf("    sub rax, 56\n");
+        printf("    add rax, rdi\n");
+        printf("    push [rax]\n");
         break;
     
     case StackCl:
@@ -239,12 +248,12 @@ void x86_64_FnDef(int num){
     printf(".Lfn%d:\n", num);
     printf("    push rbp\n");
     printf("    mov rbp, rsp\n");
-    printf("    push rdi\n");
-    printf("    push rsi\n");
-    printf("    push rdx\n");
-    printf("    push rcx\n");
-    printf("    push r8\n");
     printf("    push r9\n");
+    printf("    push r8\n");
+    printf("    push rcx\n");
+    printf("    push rdx\n");
+    printf("    push rsi\n");
+    printf("    push rdi\n");
 }
 
 void x86_64_FnCall(int fid, int argc){

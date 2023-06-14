@@ -24,12 +24,13 @@ void Compile(char *program_text){
         if (ConsumeE(&program, '-', StackDec)) continue;
         if (Consume(&program, '$')) {
             if (ConsumeNum(&program, OutputStackPush)) continue; // push __num__
-            if (ConsumeE(&program, '$', StackDup)) continue;  // stack dup
             if (ConsumeE(&program, '+', StackAdd)) continue;  // stack add
             if (ConsumeE(&program, '-', StackSub)) continue;  // stack sub
             if (ConsumeE(&program, '*', StackMul)) continue;  // stack mul
             if (ConsumeE(&program, '/', StackDiv)) continue;  // stack div
             if (ConsumeE(&program, '%', StackMod)) continue;  // stack mod
+            if (ConsumeE(&program, '$', StackDup)) continue;  // stack dup
+            if (ConsumeE(&program, '#', PushArg)) continue;   // push arg
             if (ConsumeE(&program, '<', StackCl)) continue;   // stack cl
             if (ConsumeE(&program, '>', StackCg)) continue;   // stack cg
             // About Stack Equal
