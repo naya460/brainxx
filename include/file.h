@@ -4,6 +4,6 @@
 
 char *ReadFile(const char *path);
 
-void WriteFile(FILE *file);
+void WriteFile(const char *path);
 
 void QueueContent(const char *content, ...);

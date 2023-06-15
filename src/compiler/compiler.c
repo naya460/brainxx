@@ -99,6 +99,4 @@ void Compile(char *program_text){
     }
 
     Output(EndAssembly);
-
-    WriteFile(stdout);
 }

@@ -40,8 +40,10 @@ char *ReadFile(const char *path){
     return str;
 }
 
-void WriteFile(FILE *file){
+void WriteFile(const char *path){
     // open file
+    FILE *file = NULL;
+    file = fopen(path, "w");
     if (file  == NULL) Error(2, "failed to open the file\n");
 
     // write file

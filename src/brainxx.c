@@ -5,8 +5,9 @@
 #include "compiler/compiler.h"
 
 int main(int argc, char **argv){
-    if (argc < 2) Error(1, "arguments are less than 2\n");
+    if (argc < 3) Error(1, "arguments are less than 2\n");
     Compile(ReadFile(argv[1]));
-    putchar('\n');
+    QueueContent("\n");
+    WriteFile(argv[2]);
     return 0;
 }

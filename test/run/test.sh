@@ -17,7 +17,7 @@ expect() {
     input=$sd/$1
     expect=$2
 
-    $bxx $input > tmp.s
+    $bxx $input tmp.s
     $assembler tmp.s -o tmp.elf
 
     echo "$4" | ./tmp.elf >> /dev/null
