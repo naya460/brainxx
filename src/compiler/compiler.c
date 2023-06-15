@@ -1,9 +1,11 @@
 #include "compiler/compiler.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "compiler/consume.h"
 #include "compiler/output.h"
+#include "file.h"
 
 // declare variables
 static char *program;
@@ -97,4 +99,6 @@ void Compile(char *program_text){
     }
 
     Output(EndAssembly);
+
+    WriteFile(stdout);
 }

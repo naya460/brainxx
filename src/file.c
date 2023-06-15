@@ -3,8 +3,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <string.h>
+#include <stdarg.h>
 
 #include "error.h"
+
+typedef struct Queue Queue;
+struct Queue {
+    char *text;
+    Queue *next;
+};
+
+static Queue *queue = NULL;
+static Queue *qend = NULL;
 
 char *ReadFile(const char *path){
     // open file
@@ -27,4 +38,44 @@ char *ReadFile(const char *path){
     fclose(file);
 
     return str;
+}
+
+void WriteFile(FILE *file){
+    // open file
+    if (file  == NULL) Error(2, "failed to open the file\n");
+
+    // write file
+    Queue *tmp = queue;
+    while (tmp != NULL) {
+        fprintf(file, "%s", tmp->text);
+        tmp = tmp->next;
+    }
+
+    // close file
+    fclose(file);
+}
+
+void QueueContent(const char *content, ...){
+    static char str[100] = { 0 };
+
+    // generate the string
+    va_list ap;
+    va_start(ap, content);
+    vsnprintf(str, 100, content, ap);
+    va_end(ap);
+
+    // create a next queue
+    Queue *tmp = (Queue*)calloc(sizeof(queue), 1);
+    tmp->text = (char*)calloc(sizeof(char), strlen(str));
+    strcpy(tmp->text, str);
+
+    if (queue == NULL) {
+        queue = tmp;
+        qend = tmp;
+        return;
+    }
+
+    // connect the queue
+    qend->next = tmp;
+    qend = tmp;
 }

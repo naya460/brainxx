@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+#include "file.h"
+
 static int rep_depth = 0;
 static int rep_c = 0;
 static int rep_c_ed[100] = {0};
@@ -10,265 +12,265 @@ void x86_64_Output(Operation operation){
     switch (operation) {
     // start of assembly
     case StartAssembly:
-        printf(".intel_syntax noprefix\n");
-        printf(".globl main\n");
-        printf("main:\n");
-        printf("    push rbp\n");
-        printf("    mov rbp, rsp\n");
-        printf("    push r9\n");
-        printf("    push r8\n");
-        printf("    push rcx\n");
-        printf("    push rdx\n");
-        printf("    push rsi\n");
-        printf("    push rdi\n");
+        QueueContent(".intel_syntax noprefix\n");
+        QueueContent(".globl main\n");
+        QueueContent("main:\n");
+        QueueContent("    push rbp\n");
+        QueueContent("    mov rbp, rsp\n");
+        QueueContent("    push r9\n");
+        QueueContent("    push r8\n");
+        QueueContent("    push rcx\n");
+        QueueContent("    push rdx\n");
+        QueueContent("    push rsi\n");
+        QueueContent("    push rdi\n");
         break;
     
     // end of assembly
     case EndAssembly:
-        printf("    mov rsp, rbp\n");
-        printf("    pop rbp\n");
-        printf("    mov rax, 0\n");
-        printf("    ret\n");
+        QueueContent("    mov rsp, rbp\n");
+        QueueContent("    pop rbp\n");
+        QueueContent("    mov rax, 0\n");
+        QueueContent("    ret\n");
         break;
     
     // c-stack
     case StackInc:
-        printf("    pop rax\n");
-        printf("    add rax, 1\n");
-        printf("    push rax\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    add rax, 1\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackDec:
-        printf("    pop rax\n");
-        printf("    sub rax, 1\n");
-        printf("    push rax\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    sub rax, 1\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackAdd:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    add rax, rdi\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    add rax, rdi\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackSub:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    sub rax, rdi\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    sub rax, rdi\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackMul:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    imul rax, rdi\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    imul rax, rdi\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackDiv:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cqo\n");
-        printf("    idiv rdi\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cqo\n");
+        QueueContent("    idiv rdi\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackMod:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cqo\n");
-        printf("    idiv rdi\n");
-        printf("    push rdx\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cqo\n");
+        QueueContent("    idiv rdi\n");
+        QueueContent("    push rdx\n");
         break;
     
     case StackDup:
-        printf("    push [rsp]\n");
+        QueueContent("    push [rsp]\n");
         break;
 
     case PushArg:
-        printf("    pop rdi\n");
-        printf("    imul rdi, 8\n");
-        printf("    mov rax, rbp\n");
-        printf("    sub rax, 56\n");
-        printf("    add rax, rdi\n");
-        printf("    push [rax]\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    imul rdi, 8\n");
+        QueueContent("    mov rax, rbp\n");
+        QueueContent("    sub rax, 56\n");
+        QueueContent("    add rax, rdi\n");
+        QueueContent("    push [rax]\n");
         break;
     
     case StackCl:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cmp rax, rdi\n");
-        printf("    setl al\n");
-        printf("    movzb rax, al\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cmp rax, rdi\n");
+        QueueContent("    setl al\n");
+        QueueContent("    movzb rax, al\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackCg:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cmp rdi, rax\n");
-        printf("    setl al\n");
-        printf("    movzb rax, al\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cmp rdi, rax\n");
+        QueueContent("    setl al\n");
+        QueueContent("    movzb rax, al\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackEq:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cmp rax, rdi\n");
-        printf("    sete al\n");
-        printf("    movzb rax, al\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cmp rax, rdi\n");
+        QueueContent("    sete al\n");
+        QueueContent("    movzb rax, al\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackEl:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cmp rax, rdi\n");
-        printf("    setle al\n");
-        printf("    movzb rax, al\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cmp rax, rdi\n");
+        QueueContent("    setle al\n");
+        QueueContent("    movzb rax, al\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackEg:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cmp rdi, rax\n");
-        printf("    setle al\n");
-        printf("    movzb rax, al\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cmp rdi, rax\n");
+        QueueContent("    setle al\n");
+        QueueContent("    movzb rax, al\n");
+        QueueContent("    push rax\n");
         break;
     
     case StackNe:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    cmp rax, rdi\n");
-        printf("    setne al\n");
-        printf("    movzb rax, al\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    cmp rax, rdi\n");
+        QueueContent("    setne al\n");
+        QueueContent("    movzb rax, al\n");
+        QueueContent("    push rax\n");
         break;
     
     case PushCptr:
-        printf("    push rsp\n");
+        QueueContent("    push rsp\n");
         break;
     
     case PushBptr:
-        printf("    mov rax, rbp\n");
-        printf("    sub rax, 48\n");
-        printf("    push rax\n");
+        QueueContent("    mov rax, rbp\n");
+        QueueContent("    sub rax, 48\n");
+        QueueContent("    push rax\n");
         break;
     
     case MovCptr:
-        printf("    pop rax\n");
-        printf("    mov rsp, rax\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    mov rsp, rax\n");
         break;
     
     case PtrAdd:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    imul rdi, 8\n");
-        printf("    sub rax, rdi\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    imul rdi, 8\n");
+        QueueContent("    sub rax, rdi\n");
+        QueueContent("    push rax\n");
         break;
 
     case PtrSub:
-        printf("    pop rdi\n");
-        printf("    pop rax\n");
-        printf("    imul rdi, 8\n");
-        printf("    add rax, rdi\n");
-        printf("    push rax\n");
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    imul rdi, 8\n");
+        QueueContent("    add rax, rdi\n");
+        QueueContent("    push rax\n");
         break;
 
     case PtrGet:
-        printf("    pop rax\n");
-        printf("    push [rax]\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    push [rax]\n");
         break;
     
     // c-ctrl
     case CtrlSpl:
-        printf("    add rsp, 8\n");
+        QueueContent("    add rsp, 8\n");
         break;
     
     case CtrlSpr:
-        printf("    sub rsp, 8\n");
+        QueueContent("    sub rsp, 8\n");
         break;
     
     case CtrlRepb:
-        printf(".Lbegin%d:\n", rep_c);
-        printf("    pop rax\n");
-        printf("    push rax\n");
-        printf("    cmp rax, 0\n");
-        printf("    je .Lend%d\n", rep_c);
+        QueueContent(".Lbegin%d:\n", rep_c);
+        QueueContent("    pop rax\n");
+        QueueContent("    push rax\n");
+        QueueContent("    cmp rax, 0\n");
+        QueueContent("    je .Lend%d\n", rep_c);
         rep_c_ed[rep_depth++] = rep_c++;
         break;
     
     case CtrlRepe:
         --rep_depth;
-        printf("    jmp .Lbegin%d\n", rep_c_ed[rep_depth]);
-        printf(".Lend%d:\n", rep_c_ed[rep_depth]);
+        QueueContent("    jmp .Lbegin%d\n", rep_c_ed[rep_depth]);
+        QueueContent(".Lend%d:\n", rep_c_ed[rep_depth]);
         break;
 
     // c-fn
     case FnRet:
-        printf("    pop rax\n");
-        printf("    mov rsp, rbp\n");
-        printf("    pop rbp\n");
-        printf("    ret\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    mov rsp, rbp\n");
+        QueueContent("    pop rbp\n");
+        QueueContent("    ret\n");
         break;
     
     // c-io
     case IoCout:
-        printf("    mov rax, 1\n");
-        printf("    mov rdi, 1\n");
-        printf("    mov rsi, rsp\n");
-        printf("    mov rdx, 1\n");
-        printf("    syscall\n");
+        QueueContent("    mov rax, 1\n");
+        QueueContent("    mov rdi, 1\n");
+        QueueContent("    mov rsi, rsp\n");
+        QueueContent("    mov rdx, 1\n");
+        QueueContent("    syscall\n");
         break;
     
     case IoCin:
-        printf("    mov rax, 0\n");
-        printf("    mov rdi, 0\n");
-        printf("    mov rsi, rsp\n");
-        printf("    mov rdx, 1\n");
-        printf("    syscall\n");
+        QueueContent("    mov rax, 0\n");
+        QueueContent("    mov rdi, 0\n");
+        QueueContent("    mov rsi, rsp\n");
+        QueueContent("    mov rdx, 1\n");
+        QueueContent("    syscall\n");
         break;
     }
 }
 
 // c-stack
 void x86_64_StackPush(int num){
-    printf("    push %d\n", num);
+    QueueContent("    push %d\n", num);
 }
 
 // c-tag
 void x86_64_TagDef(int num){
-    printf(".Ltag%d:\n", num);
+    QueueContent(".Ltag%d:\n", num);
 }
 
 void x86_64_TagJmp(int num){
-    printf("    jmp .Ltag%d\n", num);
+    QueueContent("    jmp .Ltag%d\n", num);
 }
 
 // c-fn
 void x86_64_FnDef(int num){
-    printf(".Lfn%d:\n", num);
-    printf("    push rbp\n");
-    printf("    mov rbp, rsp\n");
-    printf("    push r9\n");
-    printf("    push r8\n");
-    printf("    push rcx\n");
-    printf("    push rdx\n");
-    printf("    push rsi\n");
-    printf("    push rdi\n");
+    QueueContent(".Lfn%d:\n", num);
+    QueueContent("    push rbp\n");
+    QueueContent("    mov rbp, rsp\n");
+    QueueContent("    push r9\n");
+    QueueContent("    push r8\n");
+    QueueContent("    push rcx\n");
+    QueueContent("    push rdx\n");
+    QueueContent("    push rsi\n");
+    QueueContent("    push rdi\n");
 }
 
 void x86_64_FnCall(int fid, int argc){
-    if (argc >= 1) printf("    pop rdi\n");
-    if (argc >= 2) printf("    pop rsi\n");
-    if (argc >= 3) printf("    pop rdx\n");
-    if (argc >= 4) printf("    pop rcx\n");
-    if (argc >= 5) printf("    pop r8\n");
-    if (argc >= 6) printf("    pop r9\n");
-    printf("    call .Lfn%d\n", fid);
-    printf("    push rax\n");
+    if (argc >= 1) QueueContent("    pop rdi\n");
+    if (argc >= 2) QueueContent("    pop rsi\n");
+    if (argc >= 3) QueueContent("    pop rdx\n");
+    if (argc >= 4) QueueContent("    pop rcx\n");
+    if (argc >= 5) QueueContent("    pop r8\n");
+    if (argc >= 6) QueueContent("    pop r9\n");
+    QueueContent("    call .Lfn%d\n", fid);
+    QueueContent("    push rax\n");
 }
