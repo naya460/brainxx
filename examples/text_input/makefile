@@ -1,7 +1,7 @@
 .PHONY: build
 build: text_input.xx
 	mkdir -p build
-	../../build/src/bxx text_input.xx build/text_input.s
+	../../build/src/bxx text_input.xx -o build/text_input.s
 	$(CC) build/text_input.s -o build/text_input
 
 .PHONY: run

@@ -3,6 +3,6 @@
 
 void Error(int return_num, const char *error_text){
     fprintf(stderr, "error %d : ", return_num);
-    fprintf(stderr, "%s", error_text);
+    fprintf(stderr, "%s\n", error_text);
     exit(return_num);
 }

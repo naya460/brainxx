@@ -1,7 +1,7 @@
 .PHONY: build
 build: fibonacci.xx
 	mkdir -p build
-	../../build/src/bxx fibonacci.xx build/fibonacci.s
+	../../build/src/bxx fibonacci.xx -o build/fibonacci.s
 	$(CC) build/fibonacci.s -o build/fibonacci
 
 .PHONY: run
