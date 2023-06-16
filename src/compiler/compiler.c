@@ -6,6 +6,7 @@
 #include "compiler/consume.h"
 #include "compiler/output.h"
 #include "file.h"
+#include "error.h"
 
 // declare variables
 static char *program;
@@ -14,6 +15,8 @@ static char *program;
 
 void Compile(char *program_text){
     program = program_text;
+    char *line_begin = program;
+    int line = 1;
 
     CompileTo(arch_x86_64);
 
@@ -41,7 +44,7 @@ void Compile(char *program_text){
                 if (ConsumeE(&program, '<', StackEl)) continue; // stack el
                 if (ConsumeE(&program, '>', StackEg)) continue; // stack eg
                 if (ConsumeE(&program, '!', StackNe)) continue; // stack ne
-                exit(1); // if not found, err and exit
+                CompileError(line, program, line_begin);
             }
             // About Stack Ptr
             if (Consume(&program, ':')) {
@@ -50,9 +53,9 @@ void Compile(char *program_text){
                 if (ConsumeE(&program, '+', PtrAdd)) continue;   // ptr add
                 if (ConsumeE(&program, '-', PtrSub)) continue;   // ptr sub
                 if (ConsumeE(&program, '>', PtrGet)) continue;   // ptr get
-                exit(1); // if not found, err and exit
+                CompileError(line, program, line_begin);
             }
-            exit(1); // if not found, err and exit
+            CompileError(line, program, line_begin);
         }
         // About Ctrl
         if (ConsumeE(&program, '<', CtrlSpl)) continue;  // ctrl spl
@@ -64,20 +67,20 @@ void Compile(char *program_text){
         if (Consume(&program, ':')) {
             if (Consume(&program, ':')) {
                 if (ConsumeNum(&program, OutputTagDef)) continue; // tag def
-                exit(1); // if not found, err and exit
+                CompileError(line, program, line_begin);
             }
             if (Consume(&program, '>')) {
                 if (ConsumeNum(&program, OutputTagJmp)) continue; // tag jmp
-                exit(1); // if not found, err and exit
+                CompileError(line, program, line_begin);
             }
 
-            exit(1); // if not found, err and exit
+            CompileError(line, program, line_begin);
         }
         // About Fn
         if (Consume(&program, '#')) {
             if (Consume(&program, ':')) {
                 if (ConsumeNum(&program, OutputFnDef)) continue;  // fn def
-                exit(1); // if not found, err and exit
+                CompileError(line, program, line_begin);
             }
             // fn call
             if (Consume(&program, '>')) {
@@ -89,12 +92,17 @@ void Compile(char *program_text){
                 continue;
             }
             if (ConsumeE(&program, '<', FnRet)) continue;      // fn ret
-            exit(1); // if not found, err and exit
+            CompileError(line, program, line_begin);
         }
         // About IO
         if (ConsumeE(&program, '.', IoCout)) continue;   // io cout
         if (ConsumeE(&program, ',', IoCin)) continue;    // io cin
         // if other character
+        if (*program == '\n') {
+            line_begin = program + 1;
+            if (*line_begin == '\r') ++line_begin;
+            ++line;
+        }
         ++program;
     }
 
