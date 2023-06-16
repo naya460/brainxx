@@ -10,10 +10,15 @@ int main(int argc, char **argv){
     // local variables
     char *input_file = NULL;
     char *output_file = "output.s";
+    bool is_single_file = false;
 
     // read args
     bool is_output = false;
     for (int i = 1; i < argc; ++i) {
+        if (strcmp(argv[i], "-s") == 0) {
+            is_single_file = true;
+            continue;
+        }
         if (strcmp(argv[i], "-o") == 0) {
             is_output = true;
             continue;
@@ -35,7 +40,7 @@ int main(int argc, char **argv){
     }
 
     // compile and output
-    Compile(ReadFile(input_file));
+    Compile(ReadFile(input_file), is_single_file);
     QueueContent("\n");
     WriteFile(output_file);
     return 0;

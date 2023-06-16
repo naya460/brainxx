@@ -13,14 +13,15 @@ static char *program;
 
 // ========================================
 
-void Compile(char *program_text){
+void Compile(char *program_text, bool is_single_file){
     program = program_text;
     char *line_begin = program;
     int line = 1;
 
     CompileTo(arch_x86_64);
 
-    Output(StartAssembly);
+    Output(Header);
+    if (is_single_file) Output(StartAssembly);
 
     // Interpret every char in the program
     while(*program != '\0') {
@@ -106,5 +107,5 @@ void Compile(char *program_text){
         ++program;
     }
 
-    Output(EndAssembly);
+    if (is_single_file) Output(EndAssembly);
 }

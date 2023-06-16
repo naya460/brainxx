@@ -10,9 +10,13 @@ static int rep_c_ed[100] = {0};
 
 void x86_64_Output(Operation operation){
     switch (operation) {
+    // header of assembly
+    case Header:
+        QueueContent(".intel_syntax noprefix\n");
+        break;
+
     // start of assembly
     case StartAssembly:
-        QueueContent(".intel_syntax noprefix\n");
         QueueContent(".globl main\n");
         QueueContent("main:\n");
         QueueContent("    push rbp\n");

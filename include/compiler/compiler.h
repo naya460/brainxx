@@ -1,7 +1,9 @@
 #pragma once
 
+#include <stdbool.h>
+
 // Compile program
-void Compile(char *program);
+void Compile(char *program, bool is_single_file);
 
 // --- Operation List ---
 // About Stack

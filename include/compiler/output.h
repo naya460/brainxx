@@ -11,8 +11,10 @@ enum ARCH {
 // Operations
 typedef enum Operation Operation;
 enum Operation {
+    // header of assembly
+    Header,
     // start of assembly
-    StartAssembly = 0,
+    StartAssembly,
     // c-stack
     StackInc,
     StackDec,

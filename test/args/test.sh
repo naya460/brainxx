@@ -34,9 +34,13 @@ echo "* compile with other args order"
 $bxx -o tmp.s ret0.xx
 is_ok 0
 
+# compile with -s option
+echo "* compile with -s option"
+$bxx -s ret0.xx -o tmp.s
+
 # 2 of input files
 echo "* 2 of input files"
-$bxx ret0.xx ret1.xx -o tmp.s
+$bxx -s ret0.xx ret1.xx -o tmp.s
 is_ok 0
 $assembler tmp.s -o tmp.elf
 ./tmp.elf
@@ -44,7 +48,7 @@ is_ok 1
 
 # 2 of output files
 echo "* 2 of output files"
-$bxx ret0.xx -o tmp1.s -o tmp2.s
+$bxx -s ret0.xx -o tmp1.s -o tmp2.s
 is_ok 0
 $assembler tmp2.s -o tmp.elf
 ./tmp.elf
