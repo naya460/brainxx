@@ -37,6 +37,7 @@ void Compile(char *program, bool is_single_file);
 // | #:__num__ (fn def)
 // | #>__num__:__num__ (fn call)
 // | #<        (fn ret)
+// | #~__num__ (fn pub)
 // About Ctrl
 // | <         (ctrl spl)
 // | >         (ctrl spr)

@@ -26,6 +26,7 @@ void CompileTo_x86_64(){
     // c-fn
     OutputFnCall     = x86_64_FnCall;
     OutputFnDef      = x86_64_FnDef;
+    OutputFnPub      = x86_64_FnPub;
 }
 
 void (*Output)(Operation operation) = NULL;
@@ -42,3 +43,5 @@ void (*OutputTagJmp)(int num) = NULL;
 void (*OutputFnDef)(int num) = NULL;
 
 void (*OutputFnCall)(int fid, int argc) = NULL;
+
+void (*OutputFnPub)(int num) = NULL;

@@ -17,3 +17,5 @@ void x86_64_TagJmp(int num);
 void x86_64_FnDef(int num);
 
 void x86_64_FnCall(int fid, int argc);
+
+void x86_64_FnPub(int num);

@@ -67,3 +67,5 @@ extern void (*OutputTagJmp)(int num);
 extern void (*OutputFnDef)(int num);
 
 extern void (*OutputFnCall)(int fid, int argc);
+
+extern void (*OutputFnPub)(int num);
