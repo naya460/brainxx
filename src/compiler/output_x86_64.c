@@ -257,7 +257,7 @@ void x86_64_TagJmp(int num){
 
 // c-fn
 void x86_64_FnDef(int num){
-    QueueContent(".Lfn%d:\n", num);
+    QueueContent("fn%d:\n", num);
     QueueContent("    push rbp\n");
     QueueContent("    mov rbp, rsp\n");
     QueueContent("    push r9\n");
@@ -275,6 +275,6 @@ void x86_64_FnCall(int fid, int argc){
     if (argc >= 4) QueueContent("    pop rcx\n");
     if (argc >= 5) QueueContent("    pop r8\n");
     if (argc >= 6) QueueContent("    pop r9\n");
-    QueueContent("    call .Lfn%d\n", fid);
+    QueueContent("    call fn%d\n", fid);
     QueueContent("    push rax\n");
 }
