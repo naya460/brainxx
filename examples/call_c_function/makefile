@@ -11,3 +11,7 @@ run:
 .PHONY: clean
 clean:
 	rm -rf build/
+
+.PHONY: test
+test:
+	./test.sh

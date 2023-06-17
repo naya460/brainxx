@@ -1,8 +1,10 @@
 #!/bin/bash
 
+cd $(dirname $0)
+
 # args test
 echo "*** args test ***"
-./test/args/test.sh
+./args/test.sh
 if [ $? -ne 0 ]; then
     exit 1
 fi
@@ -12,12 +14,22 @@ echo ""
 
 # run test
 echo "*** run test ***"
-./test/run/test.sh
+./run/test.sh
 if [ $? -ne 0 ]; then
     exit 1
 fi
 echo ""
 echo "=> run test : ok"
+echo ""
+
+# example test
+echo "*** example test***"
+./example_test.sh
+if [ $? -ne 0 ]; then
+    exit 1
+fi
+echo ""
+echo "=> example test : ok"
 echo ""
 
 echo "*** All tests are successful ***"
