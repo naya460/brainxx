@@ -34,6 +34,7 @@ enum Operation {
     StackOr,
     StackAnd,
     StackXor,
+    StackNot,
     PushCptr,
     PushBptr,
     MovCptr,

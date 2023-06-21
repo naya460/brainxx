@@ -156,6 +156,7 @@ set_sd 002-stack/016-bit
 expect 001-or.xx 11
 expect 002-and.xx 6
 expect 003-xor.xx 9
+expect 004-not.xx 8
 
 #tests - 003-tag
 set_sd 003-tag
