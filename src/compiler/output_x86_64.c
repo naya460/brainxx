@@ -188,6 +188,13 @@ void x86_64_Output(Operation operation){
         QueueContent("    push rax\n");
         break;
     
+    case StackShr:
+        QueueContent("    pop rcx\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    shr rax, cl\n");
+        QueueContent("    push rax\n");
+        break;
+    
     case PushCptr:
         QueueContent("    push rsp\n");
         break;

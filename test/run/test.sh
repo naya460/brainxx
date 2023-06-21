@@ -158,6 +158,7 @@ expect 002-and.xx 6
 expect 003-xor.xx 9
 expect 004-not.xx 8
 expect 005-shl.xx 16
+expect 006-shr.xx 2
 
 #tests - 003-tag
 set_sd 003-tag

@@ -30,6 +30,7 @@ void Compile(char *program, bool is_single_file);
 // | | $^      (stack xor)
 // | | $~      (stacck not)
 // | | $[      (stack shl)
+// | | $]      (stack shr)
 // | About Stack Ptr
 // | | $:^     (push cptr)
 // | | $:~     (push bptr)
