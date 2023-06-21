@@ -155,6 +155,7 @@ expect 005-ptr-sub.xx 13
 set_sd 002-stack/016-bit
 expect 001-or.xx 11
 expect 002-and.xx 6
+expect 003-xor.xx 9
 
 #tests - 003-tag
 set_sd 003-tag

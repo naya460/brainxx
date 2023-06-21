@@ -166,7 +166,14 @@ void x86_64_Output(Operation operation){
         QueueContent("    pop rax\n");
         QueueContent("    and rax, rdi\n");
         QueueContent("    push rax\n");
-        break;        
+        break;
+    
+    case StackXor:
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    xor rax, rdi\n");
+        QueueContent("    push rax\n");
+        break;
     
     case PushCptr:
         QueueContent("    push rsp\n");

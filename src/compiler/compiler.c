@@ -50,6 +50,7 @@ void Compile(char *program_text, bool is_single_file){
             // About Stack Bit
             if (ConsumeE(&program, '|', StackOr)) continue;  // stack or
             if (ConsumeE(&program, '&', StackAnd)) continue; // stack and
+            if (ConsumeE(&program, '^', StackXor)) continue; // stack xor
             // About Stack Ptr
             if (Consume(&program, ':')) {
                 if (ConsumeE(&program, '^', PushCptr)) continue; // push cptr

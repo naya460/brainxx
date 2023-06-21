@@ -33,6 +33,7 @@ enum Operation {
     StackNe,
     StackOr,
     StackAnd,
+    StackXor,
     PushCptr,
     PushBptr,
     MovCptr,

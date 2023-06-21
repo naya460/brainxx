@@ -27,6 +27,7 @@ void Compile(char *program, bool is_single_file);
 // | About Bit
 // | | $|      (stack or)
 // | | $&      (stack and)
+// | | $^      (stack xor)
 // | About Stack Ptr
 // | | $:^     (push cptr)
 // | | $:~     (push bptr)
