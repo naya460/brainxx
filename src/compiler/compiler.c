@@ -52,6 +52,7 @@ void Compile(char *program_text, bool is_single_file){
             if (ConsumeE(&program, '&', StackAnd)) continue; // stack and
             if (ConsumeE(&program, '^', StackXor)) continue; // stack xor
             if (ConsumeE(&program, '~', StackNot)) continue; // stack not
+            if (ConsumeE(&program, '[', StackShl)) continue; // stack shl
             // About Stack Ptr
             if (Consume(&program, ':')) {
                 if (ConsumeE(&program, '^', PushCptr)) continue; // push cptr

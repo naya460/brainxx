@@ -29,6 +29,7 @@ void Compile(char *program, bool is_single_file);
 // | | $&      (stack and)
 // | | $^      (stack xor)
 // | | $~      (stacck not)
+// | | $[      (stack shl)
 // | About Stack Ptr
 // | | $:^     (push cptr)
 // | | $:~     (push bptr)
