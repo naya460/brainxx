@@ -47,6 +47,8 @@ void Compile(char *program_text, bool is_single_file){
                 if (ConsumeE(&program, '!', StackNe)) continue; // stack ne
                 CompileError(line, program, line_begin);
             }
+            // About Stack Bit
+            if (ConsumeE(&program, '|', StackOr)) continue; // stack or
             // About Stack Ptr
             if (Consume(&program, ':')) {
                 if (ConsumeE(&program, '^', PushCptr)) continue; // push cptr

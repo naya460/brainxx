@@ -153,6 +153,13 @@ void x86_64_Output(Operation operation){
         QueueContent("    movzb rax, al\n");
         QueueContent("    push rax\n");
         break;
+
+    case StackOr:
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    or rax, rdi\n");
+        QueueContent("    push rax\n");
+        break;
     
     case PushCptr:
         QueueContent("    push rsp\n");

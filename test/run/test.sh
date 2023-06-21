@@ -151,6 +151,10 @@ expect 003-ptr-get.xx 4
 expect 004-ptr-add.xx 5
 expect 005-ptr-sub.xx 13
 
+# tests - 002-stack - 016-bit
+set_sd 002-stack/016-bit
+expect 001-or.xx 11
+
 #tests - 003-tag
 set_sd 003-tag
 expect 001-def-jmp.xx 0
