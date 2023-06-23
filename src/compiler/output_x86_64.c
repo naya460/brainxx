@@ -40,13 +40,13 @@ void x86_64_Output(Operation operation){
     // c-stack
     case StackInc:
         QueueContent("    pop rax\n");
-        QueueContent("    add rax, 1\n");
+        QueueContent("    inc rax\n");
         QueueContent("    push rax\n");
         break;
     
     case StackDec:
         QueueContent("    pop rax\n");
-        QueueContent("    sub rax, 1\n");
+        QueueContent("    dec rax\n");
         QueueContent("    push rax\n");
         break;
     
