@@ -19,6 +19,10 @@ Now, the compiler can only compile to the x86_64 linux.
 Run the `./build/src/bxx` file.  
 Or copy the file to any location and run it.
 
+# How to install
+After compiling, change directory to the build directory.
+Then, run `sudo ninja install`
+
 # License
 - This compiler  
     Licensed under the Apache License 2.0;  
