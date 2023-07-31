@@ -29,6 +29,13 @@ int main(int argc, char **argv){
     // read args
     bool is_output = false;
     for (int i = 1; i < argc; ++i) {
+        if (strcmp(argv[i], "--version") == 0) {
+            printf("bxx 0.1.0\n");
+            printf("The bxx is a compiler for brainxx.\n");
+            printf("Copyright 2023 naya460\n");
+            printf("License: Apache License Version 2.0\n");
+            return 0;
+        }
         if (strcmp(argv[i], "-s") == 0) {
             is_single_file = true;
             continue;
