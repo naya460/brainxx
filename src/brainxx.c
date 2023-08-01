@@ -20,6 +20,13 @@
 #include "error.h"
 #include "compiler/compiler.h"
 
+void print_version(){
+    printf("bxx 0.1.0\n");
+    printf("The bxx is a compiler for brainxx.\n");
+    printf("Copyright 2023 naya460\n");
+    printf("License: Apache License Version 2.0\n");
+}
+
 int main(int argc, char **argv){
     // local variables
     char *input_file = NULL;
@@ -30,10 +37,7 @@ int main(int argc, char **argv){
     bool is_output = false;
     for (int i = 1; i < argc; ++i) {
         if (strcmp(argv[i], "--version") == 0) {
-            printf("bxx 0.1.0\n");
-            printf("The bxx is a compiler for brainxx.\n");
-            printf("Copyright 2023 naya460\n");
-            printf("License: Apache License Version 2.0\n");
+            print_version();
             return 0;
         }
         if (strcmp(argv[i], "-s") == 0) {
@@ -54,7 +58,8 @@ int main(int argc, char **argv){
 
     // check error
     if (input_file == NULL) {
-        Error(1, "no input file");
+        print_version();
+        return 0;
     }
     if (is_output == true) {
         Error(1, "No file path after -o");

@@ -17,12 +17,12 @@ is_ok() {
 # no args
 echo "* no args"
 $bxx
-is_ok 1
+is_ok 0
 
 # no arg after -o
 echo "* no arg after -o"
 $bxx -o
-is_ok 1
+is_ok 0
 
 # compile with input file and output file
 echo "* compile with input file and output file"
