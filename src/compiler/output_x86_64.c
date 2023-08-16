@@ -21,6 +21,7 @@
 static int rep_depth = 0;
 static int rep_c = 0;
 static int rep_c_ed[100] = {0};
+static int cin_c = 0;
 
 void x86_64_Output(Operation operation){
     switch (operation) {
@@ -298,6 +299,13 @@ void x86_64_Output(Operation operation){
         QueueContent("    mov rsi, rsp\n");
         QueueContent("    mov rdx, 1\n");
         QueueContent("    syscall\n");
+
+        QueueContent("    cmp rax, 0\n");
+        QueueContent("    jne .Lcin%d\n", cin_c);
+        QueueContent("    mov rax, -1\n");
+        QueueContent("    mov [rsp], rax\n");
+        QueueContent(".Lcin%d:\n", cin_c);
+        ++cin_c;
         break;
     }
 }
