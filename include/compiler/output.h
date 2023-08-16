@@ -57,6 +57,7 @@ enum Operation {
     PtrAdd,
     PtrSub,
     PtrGet,
+    PtrSet,
     // c-fn
     FnRet,
     // c-ctrl

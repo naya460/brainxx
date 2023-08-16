@@ -75,6 +75,7 @@ void Compile(char *program_text, bool is_single_file){
                 if (ConsumeE(&program, '+', PtrAdd)) continue;   // ptr add
                 if (ConsumeE(&program, '-', PtrSub)) continue;   // ptr sub
                 if (ConsumeE(&program, '>', PtrGet)) continue;   // ptr get
+                if (ConsumeE(&program, '<', PtrSet)) continue;   // ptr set
                 CompileError(line, program, line_begin);
             }
             CompileError(line, program, line_begin);

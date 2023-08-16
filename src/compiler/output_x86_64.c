@@ -245,6 +245,12 @@ void x86_64_Output(Operation operation){
         QueueContent("    push [rax]\n");
         break;
     
+    case PtrSet:
+        QueueContent("    pop rdi\n");
+        QueueContent("    pop rax\n");
+        QueueContent("    mov [rax], rdi\n");
+        break;
+    
     // c-ctrl
     case CtrlSpl:
         QueueContent("    add rsp, 8\n");

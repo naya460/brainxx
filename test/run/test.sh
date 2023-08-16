@@ -150,6 +150,7 @@ expect 002-cur-mov.xx 48
 expect 003-ptr-get.xx 4
 expect 004-ptr-add.xx 5
 expect 005-ptr-sub.xx 13
+expect 006-ptr-set.xx 29
 
 # tests - 002-stack - 016-bit
 set_sd 002-stack/016-bit

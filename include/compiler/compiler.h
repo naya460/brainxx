@@ -51,6 +51,7 @@ void Compile(char *program, bool is_single_file);
 // | | $:+     (ptr add)
 // | | $:-     (ptr sub)
 // | | $:>     (ptr get)
+// | | $:<     (ptr set)
 // About Tag
 // | ::__num__ (tag def)
 // | :>__num__ (tag jmp)
