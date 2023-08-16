@@ -21,8 +21,8 @@
 #include "compiler/compiler.h"
 
 void print_version(){
-    printf("bxx 0.1.0\n");
-    printf("The bxx is a compiler for brainxx.\n");
+    printf("bxx 0.2.0\n");
+    printf("The bxx is a compiler for brainxx (version 0.2).\n");
     printf("Copyright 2023 naya460\n");
     printf("License: Apache License Version 2.0\n");
 }
