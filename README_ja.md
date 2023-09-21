@@ -28,6 +28,6 @@ brainxxは、難解プログラミング言語風のプログラミング言語�
     Apache License 2.0 の下で配布されています。  
     詳細はLICENSEファイルを確認してください。  
 - ドキュメント  
-    CC BY の下で配布されています。  
+    CC BY 4.0 の下で配布されています。  
     コモンズ証 : https://creativecommons.org/licenses/by/4.0/deed.ja  
     リーガルコード : https://creativecommons.org/licenses/by/4.0/legalcode.ja  

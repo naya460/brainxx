@@ -28,6 +28,6 @@ Then, run `sudo ninja install`
     Licensed under the Apache License 2.0;  
     see the LICENSE file for more information.  
 - The documents  
-    Licensed under the CC BY.  
+    Licensed under the CC BY 4.0.
     Commons deed : https://creativecommons.org/licenses/by/4.0/deed.en  
     Legalcode : https://creativecommons.org/licenses/by/4.0/legalcode  
