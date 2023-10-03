@@ -23,7 +23,7 @@ void x86_64_Output(Operation operation);
 void x86_64_StackPush(int num);
 
 // c-tag
-void x86_64_TagDef(int num);
+void x86_64_TagDef(char *num_str);
 
 void x86_64_TagJmp(int num);
 

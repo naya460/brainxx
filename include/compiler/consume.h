@@ -42,3 +42,8 @@ bool ConsumeNum(char **program_ptr, void function(int num));
 // If it was successful, return the number with the pointer
 // and move the program pointer to next of number
 bool ReadNum(char **program_ptr, int *num);
+
+// Try to read number as string
+// If it was successful, return the string pointer
+// and move the program pointer to next of number string
+bool ReadNumStr(char **program_ptr, char **num_str);

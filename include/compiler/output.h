@@ -80,7 +80,7 @@ void CompileTo(ARCH architecture);
 extern void (*OutputStackPush)(int num);
 
 // c-tag
-extern void (*OutputTagDef)(int num);
+extern void (*OutputTagDef)(char *num_str);
 
 extern void (*OutputTagJmp)(int num);
 

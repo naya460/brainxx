@@ -88,8 +88,13 @@ void Compile(char *program_text, bool is_single_file){
         if (ConsumeE(&program, '@', MovCptr)) continue;  // mov  cptr
         // About Tag
         if (Consume(&program, ':')) {
+            // tag def
             if (Consume(&program, ':')) {
-                if (ConsumeNum(&program, OutputTagDef)) continue; // tag def
+                char **num_str;
+                if (ReadNumStr(&program, num_str)) {
+                    OutputTagDef(*num_str);
+                    continue; 
+                }
                 CompileError(line, program, line_begin);
             }
             if (Consume(&program, '>')) {

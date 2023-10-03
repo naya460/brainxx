@@ -49,7 +49,7 @@ void (*Output)(Operation operation) = NULL;
 void (*OutputStackPush)(int num) = NULL;
 
 // c-tag
-void (*OutputTagDef)(int num) = NULL;
+void (*OutputTagDef)(char *num_str) = NULL;
 
 void (*OutputTagJmp)(int num) = NULL;
 
