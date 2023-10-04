@@ -100,7 +100,7 @@ void Compile(char *program_text, bool is_single_file){
                 CompileError(line, program, line_begin);
             }
             if (Consume(&program, '>')) {
-                if (ConsumeNum(&program, OutputTagJmp)) continue; // tag jmp
+                if (ConsumeNumStr(&program, OutputTagJmp)) continue; // tag jmp
                 CompileError(line, program, line_begin);
             }
 

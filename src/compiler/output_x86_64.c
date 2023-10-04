@@ -320,8 +320,8 @@ void x86_64_TagDef(char *num_str){
     QueueContent(".Ltag%s:\n", num_str);
 }
 
-void x86_64_TagJmp(int num){
-    QueueContent("    jmp .Ltag%d\n", num);
+void x86_64_TagJmp(char *num_str){
+    QueueContent("    jmp .Ltag%s\n", num_str);
 }
 
 // c-fn

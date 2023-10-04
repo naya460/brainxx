@@ -164,7 +164,7 @@ expect 006-shr.xx 2
 #tests - 003-tag
 set_sd 003-tag
 expect 001-def-jmp.xx 0
-expect 002-num_str.xx 1
+expect 002-num_str.xx 3
 
 # tests - 043-fn
 set_sd 004-fn

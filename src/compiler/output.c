@@ -51,7 +51,7 @@ void (*OutputStackPush)(int num) = NULL;
 // c-tag
 void (*OutputTagDef)(char *num_str) = NULL;
 
-void (*OutputTagJmp)(int num) = NULL;
+void (*OutputTagJmp)(char *num_str) = NULL;
 
 // c-fn
 void (*OutputFnDef)(int num) = NULL;

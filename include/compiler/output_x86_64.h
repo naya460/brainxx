@@ -25,7 +25,7 @@ void x86_64_StackPush(int num);
 // c-tag
 void x86_64_TagDef(char *num_str);
 
-void x86_64_TagJmp(int num);
+void x86_64_TagJmp(char *num_str);
 
 // c-fn
 void x86_64_FnDef(int num);

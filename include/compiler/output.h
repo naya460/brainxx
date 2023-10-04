@@ -82,7 +82,7 @@ extern void (*OutputStackPush)(int num);
 // c-tag
 extern void (*OutputTagDef)(char *num_str);
 
-extern void (*OutputTagJmp)(int num);
+extern void (*OutputTagJmp)(char *num_str);
 
 // c-fn
 extern void (*OutputFnDef)(int num);
