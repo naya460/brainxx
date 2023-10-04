@@ -59,3 +59,10 @@ bool ReadNumStr(char **program_ptr, char **num_str){
     program_ptr += count;
     return true;
 }
+
+bool ConsumeNumStr(char **program_ptr, void function(char *num_str)){
+    char **tmp = (char**)calloc(sizeof(char**), 1);
+    bool ret = ReadNumStr(program_ptr, tmp);
+    if (ret) function(*tmp);
+    return ret;
+}

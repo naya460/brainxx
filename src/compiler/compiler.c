@@ -90,11 +90,13 @@ void Compile(char *program_text, bool is_single_file){
         if (Consume(&program, ':')) {
             // tag def
             if (Consume(&program, ':')) {
+                /*
                 char **num_str;
                 if (ReadNumStr(&program, num_str)) {
                     OutputTagDef(*num_str);
                     continue; 
-                }
+                }*/
+                if (ConsumeNumStr(&program, OutputTagDef)) continue;
                 CompileError(line, program, line_begin);
             }
             if (Consume(&program, '>')) {

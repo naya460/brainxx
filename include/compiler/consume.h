@@ -47,3 +47,8 @@ bool ReadNum(char **program_ptr, int *num);
 // If it was successful, return the string pointer
 // and move the program pointer to next of number string
 bool ReadNumStr(char **program_ptr, char **num_str);
+
+// Try to read number as string
+// If it was successful, run the function
+// and move the program pointer to next of number string
+bool ConsumeNumStr(char **program_ptr, void function(char *num_str));
