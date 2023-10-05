@@ -109,7 +109,7 @@ void Compile(char *program_text, bool is_single_file){
         // About Fn
         if (Consume(&program, '#')) {
             if (Consume(&program, ':')) {
-                if (ConsumeNum(&program, OutputFnDef)) continue;  // fn def
+                if (ConsumeNumStr(&program, OutputFnDef)) continue;  // fn def
                 CompileError(line, program, line_begin);
             }
             // fn call

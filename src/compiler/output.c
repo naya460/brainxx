@@ -54,7 +54,7 @@ void (*OutputTagDef)(char *num_str) = NULL;
 void (*OutputTagJmp)(char *num_str) = NULL;
 
 // c-fn
-void (*OutputFnDef)(int num) = NULL;
+void (*OutputFnDef)(char *num_str) = NULL;
 
 void (*OutputFnCall)(int fid, int argc) = NULL;
 

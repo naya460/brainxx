@@ -85,7 +85,7 @@ extern void (*OutputTagDef)(char *num_str);
 extern void (*OutputTagJmp)(char *num_str);
 
 // c-fn
-extern void (*OutputFnDef)(int num);
+extern void (*OutputFnDef)(char *num_str);
 
 extern void (*OutputFnCall)(int fid, int argc);
 

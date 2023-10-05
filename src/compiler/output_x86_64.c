@@ -325,8 +325,8 @@ void x86_64_TagJmp(char *num_str){
 }
 
 // c-fn
-void x86_64_FnDef(int num){
-    QueueContent("fn%d:\n", num);
+void x86_64_FnDef(char *num_str){
+    QueueContent("fn%s:\n", num_str);
     QueueContent("    push rbp\n");
     QueueContent("    mov rbp, rsp\n");
     QueueContent("    push r9\n");
