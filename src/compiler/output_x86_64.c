@@ -337,14 +337,14 @@ void x86_64_FnDef(char *num_str){
     QueueContent("    push rdi\n");
 }
 
-void x86_64_FnCall(int fid, int argc){
+void x86_64_FnCall(char *fid, int argc){
     if (argc >= 1) QueueContent("    pop rdi\n");
     if (argc >= 2) QueueContent("    pop rsi\n");
     if (argc >= 3) QueueContent("    pop rdx\n");
     if (argc >= 4) QueueContent("    pop rcx\n");
     if (argc >= 5) QueueContent("    pop r8\n");
     if (argc >= 6) QueueContent("    pop r9\n");
-    QueueContent("    call fn%d\n", fid);
+    QueueContent("    call fn%s\n", fid);
     QueueContent("    push rax\n");
 }
 

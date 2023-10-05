@@ -56,7 +56,7 @@ bool ReadNumStr(char **program_ptr, char **num_str){
     if (count == 0) return false;
     *num_str = (char*)calloc(sizeof(char), count + 1);
     strncpy(*num_str, program, count);
-    program_ptr += count;
+    *program_ptr += count;
     return true;
 }
 

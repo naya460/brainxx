@@ -114,11 +114,12 @@ void Compile(char *program_text, bool is_single_file){
             }
             // fn call
             if (Consume(&program, '>')) {
-                int fid = 0, argc = 0;
-                if (!ReadNum(&program, &fid)) exit(1);
+                char **fid = (char**)calloc(sizeof(char**), 1);
+                int argc = 0;
+                if (!ReadNumStr(&program, fid)) exit(1);
                 if (!Consume(&program, ':')) exit(1);
                 if (!ReadNum(&program, &argc)) exit(1);
-                OutputFnCall(fid, argc);
+                OutputFnCall(*fid, argc);
                 continue;
             }
             if (ConsumeE(&program, '<', FnRet)) continue;      // fn ret

@@ -30,6 +30,6 @@ void x86_64_TagJmp(char *num_str);
 // c-fn
 void x86_64_FnDef(char *num_str);
 
-void x86_64_FnCall(int fid, int argc);
+void x86_64_FnCall(char *fid, int argc);
 
 void x86_64_FnPub(int num);
