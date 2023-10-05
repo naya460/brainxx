@@ -89,4 +89,4 @@ extern void (*OutputFnDef)(char *num_str);
 
 extern void (*OutputFnCall)(char *fid, int argc);
 
-extern void (*OutputFnPub)(int num);
+extern void (*OutputFnPub)(char *num_str);

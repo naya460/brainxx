@@ -173,6 +173,7 @@ expect 002-call-number.xx 15
 expect 003-call-double.xx 20
 expect 004-call-1arg.xx 76
 expect 005-call-6args.xx 63
+expect 006-num_str.xx 3
 
 # tests - 005-ctrl - 001-spl
 set_sd 005-ctrl/001-spl

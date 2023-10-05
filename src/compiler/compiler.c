@@ -125,7 +125,7 @@ void Compile(char *program_text, bool is_single_file){
             if (ConsumeE(&program, '<', FnRet)) continue;      // fn ret
             // fn pub
             if (Consume(&program, '~')) {
-                if (ConsumeNum(&program, OutputFnPub)) continue;
+                if (ConsumeNumStr(&program, OutputFnPub)) continue;
                 CompileError(line, program, line_begin);
             }
             CompileError(line, program, line_begin);

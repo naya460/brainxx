@@ -348,6 +348,6 @@ void x86_64_FnCall(char *fid, int argc){
     QueueContent("    push rax\n");
 }
 
-void x86_64_FnPub(int num){
-    QueueContent(".global fn%d\n", num);
+void x86_64_FnPub(char *num_str){
+    QueueContent(".global fn%s\n", num_str);
 }

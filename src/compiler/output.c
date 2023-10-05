@@ -58,4 +58,4 @@ void (*OutputFnDef)(char *num_str) = NULL;
 
 void (*OutputFnCall)(char *fid, int argc) = NULL;
 
-void (*OutputFnPub)(int num) = NULL;
+void (*OutputFnPub)(char *num_str) = NULL;
